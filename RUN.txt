@@ -1,0 +1,2 @@
+فتح الموقع : npm run dev
+فتح الداتا بيز ادخلي جوا packages\database واكتبي : npx prisma studio
