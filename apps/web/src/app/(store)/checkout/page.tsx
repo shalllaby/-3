@@ -2,6 +2,7 @@ import CheckoutSteps from '@/components/store/CheckoutSteps';
 import { Metadata } from 'next';
 import { ShieldCheck } from 'lucide-react';
 import { STORE_NAME } from '@/lib/constants';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
     title: 'إتمام الطلب',
@@ -27,7 +28,9 @@ export default function CheckoutPage() {
 
             {/* Checkout Process */}
             <section>
-                <CheckoutSteps />
+                <Suspense fallback={<div className="text-center p-8 text-gray-500">جاري تحميل بيانات الطلب...</div>}>
+                    <CheckoutSteps />
+                </Suspense>
             </section>
 
             {/* Support Info */}
