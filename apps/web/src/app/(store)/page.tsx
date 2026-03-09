@@ -555,38 +555,41 @@ export default async function HomePage() {
                             const imageName = `${cat.nameAr}.png`;
                             const localImagePath = `/صور الاقسام/${imageName}`;
 
-                            // Handle monorepo pathing (local dev usually from root, production from app dir)
+                            // Rule: If we have a remote imageUrl in DB, use it (best for Production)
+                            // Otherwise, try to find it locally (best for Local dev)
+
+                            let finalSrc = cat.imageUrl || localImagePath;
+
+                            // Check if we should override with local if it exists
                             const possiblePublicPaths = [
                                 path.join(process.cwd(), 'public'),
                                 path.join(process.cwd(), 'apps', 'web', 'public')
                             ];
 
-                            let hasLocalImage = false;
+                            let localExists = false;
                             for (const p of possiblePublicPaths) {
                                 if (fs.existsSync(path.join(p, 'صور الاقسام', imageName))) {
-                                    hasLocalImage = true;
+                                    localExists = true;
                                     break;
                                 }
+                            }
+
+                            // If it doesn't exist locally AND we don't have a remote URL, show box
+                            if (!localExists && !cat.imageUrl) {
+                                finalSrc = null;
                             }
 
                             return (
                                 <Link key={cat.id} href={`/products?categoryId=${cat.id}`} className="cat-card">
                                     <div className="cat-img-wrap">
-                                        {hasLocalImage ? (
+                                        {finalSrc ? (
                                             <Image
-                                                src={localImagePath}
+                                                src={encodeURI(finalSrc)}
                                                 alt={cat.nameAr}
                                                 width={80}
                                                 height={80}
                                                 style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-                                            />
-                                        ) : cat.imageUrl ? (
-                                            <Image
-                                                src={cat.imageUrl}
-                                                alt={cat.nameAr}
-                                                width={80}
-                                                height={80}
-                                                style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+                                                unoptimized // Bypass Next.js image optimization for external/raw paths temporarily
                                             />
                                         ) : (
                                             <span style={{ fontSize: 32 }}>📦</span>
