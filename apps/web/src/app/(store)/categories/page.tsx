@@ -28,34 +28,29 @@ export default async function CategoriesPage() {
             <div className="max-w-7xl mx-auto px-4">
 
                 {/* ── HEADER ── */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-                    <div className="max-w-xl">
-                        <div className="flex items-center gap-3 mb-4">
-                            <div className="w-12 h-12 bg-brand-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-brand-200">
-                                <LayoutGrid className="w-6 h-6" />
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                    <div className="max-w-2xl">
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="w-14 h-14 bg-blue-600 rounded-[20px] flex items-center justify-center text-white shadow-xl shadow-blue-100 rotate-3 group">
+                                <LayoutGrid className="w-7 h-7 group-hover:rotate-12 transition-transform" />
                             </div>
-                            <h1 className="text-3xl lg:text-4xl font-black text-gray-900">تسوق حسب التصنيف</h1>
+                            <h1 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">قائمة التصنيفات</h1>
                         </div>
-                        <p className="text-gray-500 font-medium text-lg leading-relaxed">
+                        <p className="text-slate-500 font-semibold text-xl leading-relaxed max-w-xl">
                             استكشف مجموعتنا الواسعة من التصنيفات المختارة بعناية لتناسب جميع احتياجات منزلك ونظافتك.
                         </p>
                     </div>
                 </div>
 
-                {/* ── ALL + CATEGORIES GRID ── */}
-
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {/* ── CATEGORIES GRID ── */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     {categories.map((cat: any) => {
                         const isDiscount = cat.slug === 'discounts' || cat.nameAr === 'الخصومات';
                         const imageName = `${cat.nameAr}.png`;
                         const localImagePath = `/صور الاقسام/${imageName}`;
 
-                        // Rule: If we have a remote imageUrl in DB, use it (best for Production)
-                        // Otherwise, try to find it locally (best for Local dev)
                         let finalSrc = cat.imageUrl || localImagePath;
 
-                        // Check if we should override with local if it exists
                         const possiblePublicPaths = [
                             path.join(process.cwd(), 'public'),
                             path.join(process.cwd(), 'apps', 'web', 'public')
@@ -69,7 +64,6 @@ export default async function CategoriesPage() {
                             }
                         }
 
-                        // If it doesn't exist locally AND we don't have a remote URL, show box
                         if (!localExists && !cat.imageUrl) {
                             finalSrc = null;
                         }
@@ -78,35 +72,35 @@ export default async function CategoriesPage() {
                             <Link
                                 key={cat.id}
                                 href={`/products?categoryId=${cat.id}`}
-                                className={`group bg-white rounded-[2rem] p-6 border border-transparent hover:border-brand-100 hover:shadow-2xl hover:shadow-brand-100/20 transition-all duration-500 flex flex-col items-center text-center ${isDiscount ? 'cat-card-featured pulse-border' : ''}`}
+                                className={`group bg-white rounded-[2.5rem] p-8 border border-slate-100 hover:border-blue-200 hover:shadow-[0_32px_80px_rgba(30,58,138,0.1)] transition-all duration-500 flex flex-col items-center text-center ${isDiscount ? 'cat-card-featured pulse-border' : ''}`}
                             >
-                                {isDiscount && <div className="cat-badge">🔥 عروض كبرى</div>}
-                                <div className="w-24 h-24 bg-brand-50 rounded-[2rem] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-100 transition-all duration-500 overflow-hidden relative">
+                                {isDiscount && <div className="cat-badge" style={{ transform: 'rotate(-2deg)' }}>🔥 عروض كبرى</div>}
+                                <div className="w-32 h-32 bg-slate-50 rounded-[2rem] flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-blue-50 transition-all duration-500 overflow-hidden relative border border-slate-50 group-hover:border-blue-100">
                                     {finalSrc ? (
                                         <Image
                                             src={encodeURI(finalSrc)}
                                             alt={cat.nameAr}
                                             fill
-                                            className="object-contain p-2"
+                                            className="object-contain p-4"
                                             unoptimized
                                         />
                                     ) : (
-                                        <span className="text-4xl">📦</span>
+                                        <span className="text-5xl">📦</span>
                                     )}
                                 </div>
 
-                                <h2 className="text-xl font-black text-gray-900 mb-2 group-hover:text-brand-600 transition-colors">
+                                <h2 className="text-2xl font-black text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">
                                     {cat.nameAr}
                                 </h2>
 
                                 {cat._count?.products !== undefined && (
-                                    <p className="text-xs font-bold text-brand-400 uppercase tracking-widest mb-6">
+                                    <p className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-8">
                                         {cat._count.products} منتج متوفر
                                     </p>
                                 )}
 
-                                <div className="mt-auto w-full pt-6 border-t border-slate-50 flex items-center justify-center gap-2 text-brand-600 font-black text-sm group-hover:gap-4 transition-all">
-                                    <span>تصفح الآن</span>
+                                <div className="mt-auto w-full pt-6 border-t border-slate-50 flex items-center justify-center gap-2 text-blue-600 font-black text-sm group-hover:gap-4 transition-all">
+                                    <span>تصفح القسم</span>
                                     <ArrowLeft className="w-4 h-4" />
                                 </div>
                             </Link>

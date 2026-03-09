@@ -64,26 +64,24 @@ export default async function HomePage() {
                 __html: `
 
                 :root {
-                    --primary: #6D28D9;
-                    --primary-light: #8B5CF6;
-                    --primary-dark: #4C1D95;
-                    --accent: #3B82F6;
-                    --accent-light: #60A5FA;
-                    --accent-dark: #2563EB;
-                    --violet: #A78BFA;
-                    --indigo: #818CF8;
-                    --gradient-main: linear-gradient(135deg, #4C1D95 0%, #6D28D9 45%, #3B82F6 100%);
-                    --gradient-card: linear-gradient(145deg, #312E81 0%, #5B21B6 50%, #2563EB 100%);
-                    --gradient-subtle: linear-gradient(180deg, #FAFAFF 0%, #F0ECFF 100%);
-                    --text-dark: #1E1044;
-                    --text-mid: #5B4A82;
-                    --text-light: #9B8EC0;
+                    --primary: #2563eb;
+                    --primary-light: #60a5fa;
+                    --primary-dark: #1e40af;
+                    --accent: #f59e0b;
+                    --accent-light: #fbbf24;
+                    --accent-dark: #d97706;
+                    --gradient-main: linear-gradient(135deg, #1e40af 0%, #2563eb 45%, #0ea5e9 100%);
+                    --gradient-card: linear-gradient(145deg, #f8fafc 0%, #ffffff 100%);
+                    --gradient-subtle: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+                    --text-dark: #0f172a;
+                    --text-mid: #475569;
+                    --text-light: #94a3b8;
                     --surface: #FFFFFF;
-                    --surface-2: #FAFAFF;
-                    --surface-3: #F0ECFF;
-                    --border: #E8E0F8;
-                    --shadow-purple: 0 24px 64px rgba(109, 40, 217, 0.12);
-                    --shadow-card: 0 4px 20px rgba(109, 40, 217, 0.06);
+                    --surface-2: #f8fafc;
+                    --surface-3: #f1f5f9;
+                    --border: #e2e8f0;
+                    --shadow-brand: 0 20px 25px -5px rgba(37, 99, 235, 0.1), 0 8px 10px -6px rgba(37, 99, 235, 0.1);
+                    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
                 }
 
                 .home-page * {
@@ -94,58 +92,54 @@ export default async function HomePage() {
                 /* ── SECTION HEADER ── */
                 .section-header {
                     display: flex;
-                    align-items: flex-end;
+                    align-items: center;
                     justify-content: space-between;
-                    margin-bottom: 40px;
+                    margin-bottom: 32px;
                     gap: 16px;
                 }
                 .section-tag {
                     display: inline-block;
-                    font-size: 0.72rem;
+                    font-size: 0.7rem;
                     font-weight: 800;
-                    color: var(--primary);
-                    background: var(--surface-3);
-                    border: 1px solid var(--border);
-                    padding: 5px 14px;
-                    border-radius: 100px;
-                    margin-bottom: 10px;
-                    letter-spacing: 1px;
+                    color: white;
+                    background: var(--primary);
+                    padding: 4px 12px;
+                    border-radius: 6px;
+                    margin-bottom: 8px;
                     text-transform: uppercase;
                 }
                 .section-title {
-                    font-size: 2rem;
+                    font-size: 2.25rem;
                     font-weight: 900;
-                    color: var(--text-dark);
-                    line-height: 1.2;
-                    letter-spacing: -0.02em;
+                    color: #0f172a;
+                    line-height: 1.1;
+                    letter-spacing: -0.03em;
                 }
                 .section-subtitle {
-                    font-size: 0.92rem;
-                    color: var(--text-light);
-                    margin-top: 6px;
+                    font-size: 1.05rem;
+                    color: #64748b;
+                    margin-top: 8px;
                     font-weight: 500;
                 }
                 .section-link {
                     display: flex;
                     align-items: center;
-                    gap: 6px;
-                    color: var(--primary);
+                    gap: 8px;
+                    color: #3b82f6;
                     font-weight: 800;
-                    font-size: 0.88rem;
+                    font-size: 0.95rem;
                     text-decoration: none;
-                    padding: 10px 22px;
-                    border-radius: 100px;
-                    border: 1.5px solid var(--border);
-                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                    white-space: nowrap;
-                    background: white;
+                    padding: 10px 24px;
+                    border-radius: 14px;
+                    border: 1px solid #f1f5f9;
+                    transition: all 0.3s ease;
+                    background: #f8fafc;
                 }
                 .section-link:hover {
-                    background: var(--primary);
+                    background: #3b82f6;
                     color: white;
-                    border-color: var(--primary);
-                    box-shadow: 0 8px 24px rgba(109, 40, 217, 0.25);
-                    transform: translateY(-2px);
+                    border-color: #3b82f6;
+                    transform: translateX(-4px);
                 }
 
                 /* ── CATEGORIES ── */
@@ -167,26 +161,17 @@ export default async function HomePage() {
                     padding: 20px 12px 16px;
                     text-align: center;
                     text-decoration: none;
-                    border: 1.5px solid var(--border);
-                    box-shadow: var(--shadow-card);
+                    border: 1px solid #f1f5f9;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
                     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
                     display: block;
                     position: relative;
                     overflow: hidden;
                 }
-                .cat-card::before {
-                    content: '';
-                    position: absolute;
-                    inset: 0;
-                    background: linear-gradient(180deg, rgba(109,40,217,0.02) 0%, transparent 100%);
-                    opacity: 0;
-                    transition: opacity 0.3s ease;
-                }
-                .cat-card:hover::before { opacity: 1; }
                 .cat-card:hover {
-                    border-color: var(--primary-light);
+                    border-color: #3b82f6;
                     transform: translateY(-8px) scale(1.02);
-                    box-shadow: var(--shadow-purple);
+                    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.08);
                 }
                 .cat-img-wrap {
                     width: 84px; height: 84px;
@@ -194,27 +179,27 @@ export default async function HomePage() {
                     border-radius: 20px;
                     overflow: hidden;
                     display: flex; align-items: center; justify-content: center;
-                    background: var(--surface-3);
-                    border: 1px solid var(--border);
+                    background: #f8fafc;
+                    border: 1px solid #f1f5f9;
                     transition: all 0.4s ease;
                 }
                 .cat-card:hover .cat-img-wrap {
                     transform: scale(1.1);
                     background: white;
-                    border-color: var(--primary-light);
-                    box-shadow: 0 8px 20px rgba(109, 40, 217, 0.1);
+                    border-color: #3b82f6;
+                    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
                 }
                 .cat-name {
                     font-size: 0.82rem;
                     font-weight: 800;
-                    color: var(--text-dark);
+                    color: #0f172a;
                     line-height: 1.3;
                     letter-spacing: -0.01em;
                     position: relative;
                 }
                 .cat-count {
                     font-size: 0.68rem;
-                    color: var(--text-light);
+                    color: #64748b;
                     margin-top: 4px;
                     font-weight: 600;
                 }
@@ -233,76 +218,7 @@ export default async function HomePage() {
                 @media (max-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
                 @media (max-width: 640px) { .products-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
 
-                /* ── EMAIL BANNER ── */
-                .email-banner {
-                    margin: 60px 16px 0;
-                    max-width: 1200px;
-                    margin-left: auto;
-                    margin-right: auto;
-                    margin-top: 60px;
-                    border-radius: 32px;
-                    background: var(--gradient-card);
-                    padding: 60px 44px;
-                    text-align: center;
-                    color: white;
-                    position: relative;
-                    overflow: hidden;
-                }
-                .email-banner::before {
-                    content: '';
-                    position: absolute;
-                    width: 500px; height: 500px;
-                    border-radius: 50%;
-                    background: radial-gradient(circle, rgba(96,165,250,0.25) 0%, transparent 70%);
-                    top: -200px; right: -120px;
-                }
-                .email-banner::after {
-                    content: '';
-                    position: absolute;
-                    width: 400px; height: 400px;
-                    border-radius: 50%;
-                    background: radial-gradient(circle, rgba(167,139,250,0.2) 0%, transparent 70%);
-                    bottom: -150px; left: -80px;
-                }
-                .email-banner-content { position: relative; z-index: 2; }
-                .email-banner h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -0.02em; }
-                .email-banner p { font-size: 1.05rem; opacity: 0.85; margin-bottom: 32px; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.8; }
-                .email-form {
-                    display: flex;
-                    gap: 12px;
-                    max-width: 420px;
-                    margin: 0 auto;
-                }
-                .email-input {
-                    flex: 1;
-                    background: rgba(255,255,255,0.12);
-                    backdrop-filter: blur(16px);
-                    border: 1.5px solid rgba(255,255,255,0.2);
-                    border-radius: 16px;
-                    padding: 16px 20px;
-                    color: white;
-                    font-family: 'Cairo', sans-serif;
-                    font-size: 0.95rem;
-                    text-align: right;
-                    outline: none;
-                    transition: all 0.3s ease;
-                }
-                .email-input::placeholder { color: rgba(255,255,255,0.45); }
-                .email-input:focus { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.18); }
-                .email-btn {
-                    background: white;
-                    color: var(--primary);
-                    border: none;
-                    border-radius: 16px;
-                    padding: 16px 28px;
-                    font-family: 'Cairo', sans-serif;
-                    font-weight: 900;
-                    font-size: 0.95rem;
-                    cursor: pointer;
-                    white-space: nowrap;
-                    transition: all 0.3s ease;
-                }
-                .email-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+                /* ── EMAIL BANNER — Handled by NewsletterBanner.tsx component ── */
 
                 /* ── REFERRAL BANNER ── */
                 .referral-section {
@@ -311,16 +227,17 @@ export default async function HomePage() {
                     margin: 0 auto;
                 }
                 .referral-card {
-                    border-radius: 32px;
-                    background: linear-gradient(135deg, #0C0420 0%, #1E0A4E 35%, #172554 100%);
-                    padding: 60px 52px;
+                    border-radius: 24px;
+                    background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+                    padding: 64px 48px;
                     display: grid;
                     grid-template-columns: 1fr auto;
                     align-items: center;
                     gap: 48px;
                     position: relative;
                     overflow: hidden;
-                    border: 1px solid rgba(139,92,246,0.25);
+                    border: 1px solid rgba(255,255,255,0.1);
+                    box-shadow: 0 20px 50px rgba(37, 99, 235, 0.2);
                 }
                 @media (max-width: 768px) { .referral-card { grid-template-columns: 1fr; text-align: center; padding: 40px 24px; } }
                 .referral-card::before {
@@ -344,15 +261,14 @@ export default async function HomePage() {
                     display: inline-flex;
                     align-items: center;
                     gap: 8px;
-                    background: rgba(139,92,246,0.15);
-                    border: 1px solid rgba(139,92,246,0.35);
-                    border-radius: 100px;
-                    padding: 8px 20px;
-                    font-size: 0.82rem;
+                    background: rgba(255,255,255,0.15);
+                    border: 1px solid rgba(255,255,255,0.2);
+                    border-radius: 8px;
+                    padding: 6px 16px;
+                    font-size: 0.8rem;
                     font-weight: 800;
-                    color: #C4B5FD;
-                    margin-bottom: 20px;
-                    backdrop-filter: blur(8px);
+                    color: white;
+                    margin-bottom: 24px;
                 }
                 .referral-title {
                     font-size: 2.4rem;
@@ -370,7 +286,7 @@ export default async function HomePage() {
                     margin-bottom: 32px;
                 }
                 .referral-highlight {
-                    color: #A78BFA;
+                    color: #fbcf33;
                     font-weight: 900;
                 }
                 .referral-steps {
@@ -413,36 +329,35 @@ export default async function HomePage() {
                     display: inline-flex;
                     align-items: center;
                     gap: 12px;
-                    background: linear-gradient(135deg, var(--primary-light), var(--accent));
-                    color: white;
+                    background: #fbcf33;
+                    color: #1e40af;
                     font-weight: 900;
-                    font-size: 1.05rem;
-                    padding: 18px 36px;
-                    border-radius: 20px;
+                    font-size: 1.1rem;
+                    padding: 18px 40px;
+                    border-radius: 16px;
                     text-decoration: none;
-                    box-shadow: 0 12px 40px rgba(109,40,217,0.4);
-                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                    transition: all 0.3s ease;
                 }
-                .referral-cta:hover { transform: translateY(-4px); box-shadow: 0 20px 56px rgba(109,40,217,0.5); }
+                .referral-cta:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
                 .referral-visual {
                     position: relative;
                     z-index: 2;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    gap: 16px;
+                    gap: 20px;
                 }
                 .referral-circle {
-                    width: 160px; height: 160px;
-                    border-radius: 50%;
-                    background: linear-gradient(135deg, var(--primary-light), var(--accent));
+                    width: 180px; height: 180px;
+                    border-radius: 40px;
+                    background: white;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    font-size: 64px;
-                    box-shadow: 0 0 80px rgba(109,40,217,0.45), 0 0 120px rgba(59,130,246,0.2);
-                    animation: floatOrb 4s ease-in-out infinite;
-                    border: 3px solid rgba(255,255,255,0.1);
+                    font-size: 80px;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+                    transform: rotate(-5deg);
                 }
                 @keyframes floatOrb {
                     0%, 100% { transform: translateY(0) scale(1); }

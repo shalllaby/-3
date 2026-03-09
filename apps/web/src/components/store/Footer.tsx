@@ -42,8 +42,8 @@ export default function Footer() {
                 .footer-root {
                     font-family: var(--font-cairo, 'Cairo'), sans-serif;
                     direction: rtl;
-                    background: linear-gradient(180deg, #0F0626 0%, #140830 50%, #0A1240 100%);
-                    color: #CBD5E1;
+                    background: linear-gradient(180deg, #0f172a 0%, #1e3a8a 100%);
+                    color: #e2e8f0;
                     margin-top: 0;
                     position: relative;
                     overflow: hidden;
@@ -55,7 +55,7 @@ export default function Footer() {
                     position: absolute;
                     width: 600px; height: 600px;
                     border-radius: 50%;
-                    background: radial-gradient(circle, rgba(91,45,142,0.18) 0%, transparent 70%);
+                    background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
                     top: -200px; right: -150px;
                     pointer-events: none;
                 }
@@ -64,7 +64,7 @@ export default function Footer() {
                     position: absolute;
                     width: 400px; height: 400px;
                     border-radius: 50%;
-                    background: radial-gradient(circle, rgba(65,105,225,0.12) 0%, transparent 70%);
+                    background: radial-gradient(circle, rgba(251, 207, 51, 0.1) 0%, transparent 70%);
                     bottom: 0; left: -100px;
                     pointer-events: none;
                 }
@@ -78,22 +78,22 @@ export default function Footer() {
 
                 /* ── CTA STRIP ── */
                 .footer-cta-strip {
-                    background: linear-gradient(135deg, #3D1A6E 0%, #5B2D8E 40%, #3358D4 100%);
+                    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 40%, #1e40af 100%);
                     padding: 40px 24px;
                     text-align: center;
                     position: relative;
                     z-index: 2;
-                    border-bottom: 1px solid rgba(255,255,255,0.08);
+                    border-bottom: 1px solid rgba(255,255,255,0.1);
                 }
                 .footer-cta-strip h3 {
                     font-size: 1.4rem;
                     font-weight: 900;
-                    color: white;
+                    color: #fbcf33;
                     margin-bottom: 6px;
                 }
                 .footer-cta-strip p {
                     font-size: 0.9rem;
-                    color: rgba(255,255,255,0.7);
+                    color: rgba(255,255,255,0.8);
                     margin-bottom: 20px;
                 }
                 .footer-cta-btns {
@@ -163,7 +163,7 @@ export default function Footer() {
                     position: absolute;
                     inset: -2px;
                     border-radius: 50%;
-                    background: conic-gradient(from 0deg, #A78BFA, #4169E1, #8B5CF6, #A78BFA);
+                    background: conic-gradient(from 0deg, #fbcf33, #3b82f6, #fbcf33);
                     animation: footerSpin 5s linear infinite;
                 }
                 .footer-logo-ring::after {
@@ -194,7 +194,7 @@ export default function Footer() {
                 }
                 .footer-brand-sub {
                     font-size: 0.75rem;
-                    color: #A78BFA;
+                    color: #fbcf33;
                     font-weight: 600;
                 }
                 .footer-tagline {
@@ -286,7 +286,7 @@ export default function Footer() {
                     content: '';
                     width: 3px; height: 16px;
                     border-radius: 2px;
-                    background: linear-gradient(180deg, #8B5CF6, #4169E1);
+                    background: linear-gradient(180deg, #fbcf33, #eab308);
                     flex-shrink: 0;
                 }
                 .footer-link {
@@ -294,21 +294,21 @@ export default function Footer() {
                     align-items: center;
                     gap: 6px;
                     font-size: 0.85rem;
-                    color: #94A3B8;
+                    color: #94a3b8;
                     text-decoration: none;
                     padding: 5px 0;
                     transition: all 0.2s ease;
                     border-radius: 6px;
                 }
                 .footer-link::before {
-                    content: '›';
-                    color: #5B2D8E;
+                    content: '•';
+                    color: #fbcf33;
                     font-weight: 700;
-                    font-size: 1rem;
+                    font-size: 1.2rem;
                     transition: color 0.2s, transform 0.2s;
                 }
-                .footer-link:hover { color: #C4B5FD; padding-right: 4px; }
-                .footer-link:hover::before { color: #A78BFA; }
+                .footer-link:hover { color: white; padding-right: 4px; }
+                .footer-link:hover::before { color: #fbcf33; }
 
                 /* Coverage + Payment */
                 .gov-grid {
@@ -404,7 +404,7 @@ export default function Footer() {
                 /* ── BOTTOM ACCENT LINE ── */
                 .footer-accent-line {
                     height: 3px;
-                    background: linear-gradient(90deg, #3D1A6E, #5B2D8E, #4169E1, #6B8FFF, #4169E1, #5B2D8E, #3D1A6E);
+                    background: linear-gradient(90deg, #1e3a8a, #fbcf33, #3b82f6, #fbcf33, #1e3a8a);
                     background-size: 200% 100%;
                     animation: shimmer 4s linear infinite;
                 }

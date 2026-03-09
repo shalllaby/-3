@@ -47,7 +47,7 @@ export default function AdvertisingSlider({ images }: AdvertisingSliderProps) {
             style={{ fontFamily: "'Cairo', 'Tajawal', sans-serif" }}
         >
             <div
-                className="relative w-full overflow-hidden rounded-[24px] bg-[#F8F6FF] aspect-[16/9] sm:aspect-[2/1] md:aspect-[2.5/1] lg:aspect-[3/1] shadow-[0_8px_30px_rgba(109,40,217,0.08)] border border-[#E8E0F8] transition-all duration-300 hover:shadow-[0_12px_40px_rgba(109,40,217,0.12)]"
+                className="relative w-full overflow-hidden rounded-[24px] bg-slate-50 aspect-[16/9] sm:aspect-[2/1] md:aspect-[2.5/1] lg:aspect-[3/1] shadow-xl border border-slate-200 transition-all duration-300 hover:shadow-2xl"
             >
                 {/* Slides */}
                 {images.map((src, idx) => (
@@ -67,6 +67,7 @@ export default function AdvertisingSlider({ images }: AdvertisingSliderProps) {
                             sizes="(max-width: 1200px) 100vw, 1200px"
                             style={{ objectFit: 'cover', objectPosition: 'center' }}
                             priority={idx === 0}
+                            unoptimized
                         />
                     </div>
                 ))}
@@ -77,7 +78,7 @@ export default function AdvertisingSlider({ images }: AdvertisingSliderProps) {
                         <button
                             onClick={() => goTo((current - 1 + images.length) % images.length)}
                             aria-label="السابق"
-                            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white/70 backdrop-blur-md text-[#6D28D9] rounded-full shadow-lg hover:bg-white hover:scale-110 active:scale-95 transition-all outline-none"
+                            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white/80 backdrop-blur-md text-blue-600 rounded-full shadow-lg hover:bg-white hover:scale-110 active:scale-95 transition-all outline-none border border-slate-100"
                             style={{ fontSize: '24px', fontWeight: 900 }}
                         >
                             <span className="-mr-1 mb-1">›</span>
@@ -85,7 +86,7 @@ export default function AdvertisingSlider({ images }: AdvertisingSliderProps) {
                         <button
                             onClick={() => goTo((current + 1) % images.length)}
                             aria-label="التالي"
-                            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white/70 backdrop-blur-md text-[#6D28D9] rounded-full shadow-lg hover:bg-white hover:scale-110 active:scale-95 transition-all outline-none"
+                            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-white/80 backdrop-blur-md text-blue-600 rounded-full shadow-lg hover:bg-white hover:scale-110 active:scale-95 transition-all outline-none border border-slate-100"
                             style={{ fontSize: '24px', fontWeight: 900 }}
                         >
                             <span className="-ml-1 mb-1">‹</span>

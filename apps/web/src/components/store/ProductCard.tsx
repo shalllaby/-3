@@ -75,34 +75,33 @@ export default function ProductCard({ product, compact = false }: Props) {
             className={`group relative flex flex-col overflow-hidden cursor-pointer
                 bg-white dark:bg-zinc-900
                 border border-zinc-100 dark:border-zinc-800
-                hover:border-brand-200 dark:hover:border-brand-800
-                shadow-[var(--shadow-card)] hover:shadow-brand
-                dark:hover:shadow-[0_8px_32px_-4px_rgb(139_92_246_/_0.3)]
+                hover:border-blue-200 dark:hover:border-blue-800
+                shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_24px_64px_rgba(30,58,138,0.1)]
                 transition-all duration-350 ease-out
-                hover:-translate-y-1
-                ${compact ? 'rounded-2xl' : 'rounded-[1.75rem]'}`}
+                hover:-translate-y-1.5
+                ${compact ? 'rounded-2xl' : 'rounded-3xl'}`}
         >
             {/* ── Badges ── */}
             <div className="absolute top-3 end-3 z-20 flex flex-col gap-1.5">
                 {hasDiscount && (
-                    <span className="gradient-brand text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-brand">
+                    <span className="bg-red-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-lg">
                         -{discountPct}%
                     </span>
                 )}
                 {product.isFeatured && (
-                    <span className="bg-amber-400 text-amber-900 text-[10px] font-black px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                    <span className="bg-[#fbcf33] text-blue-900 text-[10px] font-black px-2.5 py-1 rounded-full flex items-center gap-1 shadow-md">
                         <Star className="w-3 h-3 fill-current" /> مميز
                     </span>
                 )}
                 {isLowStock && (
-                    <span className="bg-orange-100 dark:bg-orange-900/40 text-orange-600 dark:text-orange-400 text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
+                    <span className="bg-orange-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-md">
                         <Zap className="w-3 h-3" /> كميات محدودة
                     </span>
                 )}
             </div>
 
             {/* ── Image ── */}
-            <div className="relative aspect-square bg-zinc-100 dark:bg-zinc-800 overflow-hidden">
+            <div className="relative aspect-square bg-white dark:bg-zinc-800 overflow-hidden">
                 {isOutOfStock && (
                     <div className="absolute inset-0 z-10 bg-black/50 dark:bg-black/60 backdrop-blur-[2px] flex items-center justify-center">
                         <span className="bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 text-xs font-black px-4 py-2 rounded-2xl flex items-center gap-2 shadow-xl">
@@ -116,11 +115,11 @@ export default function ProductCard({ product, compact = false }: Props) {
                     <div className="hidden md:block absolute inset-x-0 bottom-0 z-10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out p-3">
                         <button
                             onClick={handleAdd}
-                            className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold
+                            className={`w-full flex items-center justify-center gap-2 py-3 rounded-2xl text-sm font-bold
                                         shadow-lg transition-all duration-200 active:scale-[0.97]
                                         ${inCart > 0
-                                    ? 'gradient-brand text-white'
-                                    : 'bg-white/95 dark:bg-zinc-900/95 text-brand-600 dark:text-brand-400 backdrop-blur-sm border border-brand-200 dark:border-brand-700 hover:gradient-brand hover:text-white'
+                                    ? 'bg-blue-600 text-white'
+                                    : 'bg-white text-blue-600 backdrop-blur-sm border border-blue-100 hover:bg-blue-600 hover:text-white'
                                 }`}
                         >
                             {inCart > 0
@@ -154,7 +153,7 @@ export default function ProductCard({ product, compact = false }: Props) {
                 {!compact && (
                     <div className="flex items-center justify-between">
                         {product.category && (
-                            <span className="text-[10px] font-bold text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/50 px-2 py-0.5 rounded-md uppercase tracking-wide">
+                            <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded-md uppercase tracking-wide">
                                 {product.category.nameAr}
                             </span>
                         )}
@@ -166,7 +165,7 @@ export default function ProductCard({ product, compact = false }: Props) {
                 )}
 
                 <Link href={`/products/${product.id}`} className="block">
-                    <h3 className={`font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2 leading-snug ${compact ? 'text-xs h-[2rem]' : 'text-sm h-[2.5rem]'}`}>
+                    <h3 className={`font-bold text-slate-800 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug ${compact ? 'text-xs h-[2rem]' : 'text-sm h-[2.5rem]'}`}>
                         {product.nameAr}
                     </h3>
                 </Link>
@@ -176,7 +175,7 @@ export default function ProductCard({ product, compact = false }: Props) {
                         {visibleAttrs.map((attr) => (
                             <span
                                 key={attr.key}
-                                className="text-[10px] bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 font-medium px-1.5 py-0.5 rounded-md border border-zinc-200 dark:border-zinc-700"
+                                className="text-[10px] bg-slate-50 dark:bg-zinc-800 text-slate-500 dark:text-zinc-400 font-medium px-1.5 py-0.5 rounded-md border border-slate-100 dark:border-zinc-700"
                             >
                                 {attr.valueAr || attr.value}
                             </span>
@@ -186,11 +185,11 @@ export default function ProductCard({ product, compact = false }: Props) {
 
                 {/* ── Price ── */}
                 <div className="flex items-baseline gap-2 mt-auto pt-1.5">
-                    <span className={`font-black leading-none gradient-brand-text ${compact ? 'text-sm' : 'text-lg'}`}>
+                    <span className={`font-black leading-none text-blue-700 dark:text-blue-400 ${compact ? 'text-sm' : 'text-lg'}`}>
                         {formatKwd(displayPrice)}
                     </span>
                     {hasDiscount && (
-                        <span className="text-zinc-300 dark:text-zinc-600 text-xs line-through">
+                        <span className="text-slate-300 dark:text-zinc-600 text-xs line-through">
                             {formatKwd(product.price)}
                         </span>
                     )}
@@ -205,8 +204,8 @@ export default function ProductCard({ product, compact = false }: Props) {
                         ${isOutOfStock
                             ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-400 cursor-not-allowed'
                             : inCart > 0
-                                ? 'gradient-brand text-white shadow-brand'
-                                : 'bg-brand-50 dark:bg-brand-950/50 text-brand-600 dark:text-brand-400 hover:gradient-brand hover:text-white'
+                                ? 'bg-blue-600 text-white shadow-lg shadow-blue-200'
+                                : 'bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white'
                         }`}
                 >
                     {isOutOfStock ? (

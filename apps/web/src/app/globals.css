@@ -10,32 +10,34 @@
 /* ── CSS Variables (Light + Dark Themes) ────────────────────────────────────── */
 @layer base {
   :root {
-    /* Brand gradient stops */
-    --brand-start: #8b5cf6;
-    --brand-end: #6366f1;
-    --brand-glow: rgb(139 92 246 / 0.35);
+    /* Brand gradient stops — Professional Vibrant Blue */
+    --brand-start: #2563eb;
+    --brand-end: #0ea5e9;
+    --brand-glow: rgba(37, 99, 235, 0.25);
+    --accent: #f59e0b;
+    /* Professional Gold/Amber */
 
-    /* Surface tokens */
+    /* Surface tokens — Ultra Clean */
     --surface-0: #ffffff;
-    --surface-1: #fafafa;
-    --surface-2: #f4f4f5;
-    --surface-3: #e4e4e7;
+    --surface-1: #f8fafc;
+    --surface-2: #f1f5f9;
+    --surface-3: #e2e8f0;
 
     /* Text tokens */
-    --text-primary: #09090b;
-    --text-secondary: #52525b;
-    --text-tertiary: #a1a1aa;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-tertiary: #94a3b8;
     --text-inverse: #ffffff;
 
     /* Border */
-    --border-subtle: #e4e4e7;
-    --border-default: #d4d4d8;
-    --border-strong: #a1a1aa;
+    --border-subtle: #f1f5f9;
+    --border-default: #e2e8f0;
+    --border-strong: #cbd5e1;
 
-    /* Elevation */
-    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.06);
-    --shadow-elevated: 0 8px 24px -4px rgb(0 0 0 / 0.10);
-    --shadow-brand: 0 8px 32px -4px rgb(139 92 246 / 0.30);
+    /* Elevation — Premium Soft Shadows */
+    --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --shadow-elevated: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+    --shadow-brand: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
   }
 
   .dark {
@@ -172,13 +174,33 @@
     background-color: var(--surface-3);
   }
 
+  /* Glassmorphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .dark .glass {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Premium Card Interaction */
+  .card-premium {
+    @apply transition-all duration-300 hover:shadow-2xl hover:shadow-brand-glow hover:-translate-y-2 border border-transparent hover:border-brand-end;
+  }
+
   /* Text semantic utilities */
   .text-heading {
     color: var(--text-primary);
+    @apply font-black tracking-tight;
   }
 
   .text-body {
     color: var(--text-secondary);
+    @apply leading-relaxed;
   }
 
   .text-muted {
