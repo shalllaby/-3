@@ -71,6 +71,16 @@ async function main() {
         update: { imageUrl: 'https://i.ibb.co/Xx3fcQ2m/image.png' },
         create: { nameAr: 'الأواني البلاستيكية', nameEn: 'Plastic Utensils', slug: 'plastic-utensils', sortOrder: 5, imageUrl: 'https://i.ibb.co/Xx3fcQ2m/image.png' },
     });
+    const discounts = await prisma.category.upsert({
+        where: { slug: 'discounts' },
+        update: { imageUrl: 'https://i.ibb.co/4nnD5cpw/Gemini-Generated-Image-e48lege48lege48l.png' },
+        create: { nameAr: 'الخصومات', nameEn: 'Discounts', slug: 'discounts', sortOrder: 0, imageUrl: 'https://i.ibb.co/4nnD5cpw/Gemini-Generated-Image-e48lege48lege48l.png' },
+    });
+    const dacProducts = await prisma.category.upsert({
+        where: { slug: 'dac-products' },
+        update: { imageUrl: 'https://i.ibb.co/shdq8x0/Gemini-Generated-Image-lq042tlq042tlq04.png' },
+        create: { nameAr: 'منتجات داك', nameEn: 'DAC Products', slug: 'dac-products', sortOrder: 6, imageUrl: 'https://i.ibb.co/shdq8x0/Gemini-Generated-Image-lq042tlq042tlq04.png' },
+    });
 
     console.log('✅ Categories created');
 

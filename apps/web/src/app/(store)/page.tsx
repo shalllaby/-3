@@ -552,6 +552,7 @@ export default async function HomePage() {
 
                     <div className="cat-grid">
                         {categories.slice(0, 12).map((cat: any) => {
+                            const isDiscount = cat.slug === 'discounts' || cat.nameAr === 'الخصومات';
                             const imageName = `${cat.nameAr}.png`;
                             const localImagePath = `/صور الاقسام/${imageName}`;
 
@@ -580,16 +581,17 @@ export default async function HomePage() {
                             }
 
                             return (
-                                <Link key={cat.id} href={`/products?categoryId=${cat.id}`} className="cat-card">
+                                <Link key={cat.id} href={`/products?categoryId=${cat.id}`} className={`cat-card ${isDiscount ? 'cat-card-featured pulse-border' : ''}`}>
+                                    {isDiscount && <div className="cat-badge">🔥 عروض كبرى</div>}
                                     <div className="cat-img-wrap">
                                         {finalSrc ? (
                                             <Image
                                                 src={encodeURI(finalSrc)}
                                                 alt={cat.nameAr}
-                                                width={80}
-                                                height={80}
+                                                width={100}
+                                                height={100}
                                                 style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-                                                unoptimized // Bypass Next.js image optimization for external/raw paths temporarily
+                                                unoptimized
                                             />
                                         ) : (
                                             <span style={{ fontSize: 32 }}>📦</span>

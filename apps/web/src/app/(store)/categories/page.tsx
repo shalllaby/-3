@@ -47,6 +47,7 @@ export default async function CategoriesPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {categories.map((cat: any) => {
+                        const isDiscount = cat.slug === 'discounts' || cat.nameAr === 'الخصومات';
                         const imageName = `${cat.nameAr}.png`;
                         const localImagePath = `/صور الاقسام/${imageName}`;
 
@@ -77,8 +78,9 @@ export default async function CategoriesPage() {
                             <Link
                                 key={cat.id}
                                 href={`/products?categoryId=${cat.id}`}
-                                className="group bg-white rounded-[2rem] p-6 border border-transparent hover:border-brand-100 hover:shadow-2xl hover:shadow-brand-100/20 transition-all duration-500 flex flex-col items-center text-center"
+                                className={`group bg-white rounded-[2rem] p-6 border border-transparent hover:border-brand-100 hover:shadow-2xl hover:shadow-brand-100/20 transition-all duration-500 flex flex-col items-center text-center ${isDiscount ? 'cat-card-featured pulse-border' : ''}`}
                             >
+                                {isDiscount && <div className="cat-badge">🔥 عروض كبرى</div>}
                                 <div className="w-24 h-24 bg-brand-50 rounded-[2rem] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-100 transition-all duration-500 overflow-hidden relative">
                                     {finalSrc ? (
                                         <Image
