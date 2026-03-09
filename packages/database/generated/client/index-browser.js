@@ -299,7 +299,29 @@ exports.Prisma.CouponScalarFieldEnum = {
   code: 'code',
   discountPct: 'discountPct',
   isUsed: 'isUsed',
+  usageLimit: 'usageLimit',
+  usedCount: 'usedCount',
   expiresAt: 'expiresAt',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.LuckyWheelRewardScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  value: 'value',
+  probability: 'probability',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.LuckyWheelSpinScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  rewardId: 'rewardId',
+  rewardType: 'rewardType',
+  rewardValue: 'rewardValue',
+  couponCode: 'couponCode',
   createdAt: 'createdAt'
 };
 
@@ -387,7 +409,9 @@ exports.Prisma.ModelName = {
   PackageItem: 'PackageItem',
   Referral: 'Referral',
   Review: 'Review',
-  Coupon: 'Coupon'
+  Coupon: 'Coupon',
+  LuckyWheelReward: 'LuckyWheelReward',
+  LuckyWheelSpin: 'LuckyWheelSpin'
 };
 
 /**

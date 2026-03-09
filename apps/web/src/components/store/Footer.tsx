@@ -37,11 +37,10 @@ const COMPANIES = [
 export default function Footer() {
     return (
         <>
-            <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
-
+            <style dangerouslySetInnerHTML={{
+                __html: `
                 .footer-root {
-                    font-family: 'Cairo', sans-serif;
+                    font-family: var(--font-cairo, 'Cairo'), sans-serif;
                     direction: rtl;
                     background: linear-gradient(180deg, #0F0626 0%, #140830 50%, #0A1240 100%);
                     color: #CBD5E1;
@@ -413,12 +412,13 @@ export default function Footer() {
                     0% { background-position: 200% 0; }
                     100% { background-position: -200% 0; }
                 }
-            `}</style>
+            ` }} />
 
             {/* Top wave transition */}
-            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="footer-wave" style={{ background: '#F8F6FF', display: 'block' }}>
+            < svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="footer-wave" style={{ background: '#F8F6FF', display: 'block' }
+            }>
                 <path d="M0 80 C360 20 720 60 1080 20 C1260 0 1380 40 1440 30 L1440 80 L0 80Z" fill="#0F0626" />
-            </svg>
+            </svg >
 
             <footer className="footer-root">
 

@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function NewsletterBanner() {
     return (
-        <div style={{ padding: '60px 16px 0', maxWidth: 1200, margin: '60px auto 0' }}>
+        <div style={{ padding: '80px 16px 0', maxWidth: 1200, margin: '80px auto 0' }}>
             <div className="email-banner">
                 <div className="email-banner-content">
                     <div style={{ fontSize: '2.5rem', marginBottom: 12 }}>💌</div>

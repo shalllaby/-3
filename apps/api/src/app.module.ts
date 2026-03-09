@@ -13,6 +13,7 @@ import { ReferralModule } from './referral/referral.module';
 import { AddressesModule } from './addresses/addresses.module';
 import { PackagesModule } from './packages/packages.module';
 import { ReviewsModule } from './reviews/reviews.module';
+import { LuckyWheelModule } from './lucky-wheel/lucky-wheel.module';
 
 @Module({
     imports: [
@@ -36,6 +37,7 @@ import { ReviewsModule } from './reviews/reviews.module';
         AddressesModule,
         PackagesModule,
         ReviewsModule,
+        LuckyWheelModule,
     ],
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import path from 'path';
+import fs from 'fs';
 import { ArrowLeft, LayoutGrid, ChevronRight } from 'lucide-react';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api/v1';
@@ -41,47 +43,47 @@ export default async function CategoriesPage() {
                 </div>
 
                 {/* ── ALL + CATEGORIES GRID ── */}
-                {/* "All" filter chip */}
-                <div className="mb-6">
-                    <Link
-                        href="/products"
-                        className="inline-flex items-center gap-2 bg-brand-600 text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-lg shadow-brand-200 hover:bg-brand-700 transition-all"
-                    >
-                        ▼  الكل — جميع المنتجات
-                    </Link>
-                </div>
+
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {categories.map((cat: any) => (
-                        <Link
-                            key={cat.id}
-                            href={`/products?categoryId=${cat.id}`}
-                            className="group bg-white rounded-[2rem] p-6 border border-transparent hover:border-brand-100 hover:shadow-2xl hover:shadow-brand-100/20 transition-all duration-500 flex flex-col items-center text-center"
-                        >
-                            <div className="w-24 h-24 bg-brand-50 rounded-[2rem] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-100 transition-all duration-500 overflow-hidden relative">
-                                {cat.imageUrl ? (
-                                    <Image src={cat.imageUrl} alt={cat.nameAr} fill className="object-cover p-4" />
-                                ) : (
-                                    <span className="text-4xl">📦</span>
+                    {categories.map((cat: any) => {
+                        const localImagePath = `/صور الاقسام/${cat.nameAr}.png`;
+                        const fullPath = path.join(process.cwd(), 'public', 'صور الاقسام', `${cat.nameAr}.png`);
+                        const hasLocalImage = fs.existsSync(fullPath);
+
+                        return (
+                            <Link
+                                key={cat.id}
+                                href={`/products?categoryId=${cat.id}`}
+                                className="group bg-white rounded-[2rem] p-6 border border-transparent hover:border-brand-100 hover:shadow-2xl hover:shadow-brand-100/20 transition-all duration-500 flex flex-col items-center text-center"
+                            >
+                                <div className="w-24 h-24 bg-brand-50 rounded-[2rem] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-100 transition-all duration-500 overflow-hidden relative">
+                                    {hasLocalImage ? (
+                                        <Image src={localImagePath} alt={cat.nameAr} fill className="object-contain p-2" />
+                                    ) : cat.imageUrl ? (
+                                        <Image src={cat.imageUrl} alt={cat.nameAr} fill className="object-cover p-4" />
+                                    ) : (
+                                        <span className="text-4xl">📦</span>
+                                    )}
+                                </div>
+
+                                <h2 className="text-xl font-black text-gray-900 mb-2 group-hover:text-brand-600 transition-colors">
+                                    {cat.nameAr}
+                                </h2>
+
+                                {cat._count?.products !== undefined && (
+                                    <p className="text-xs font-bold text-brand-400 uppercase tracking-widest mb-6">
+                                        {cat._count.products} منتج متوفر
+                                    </p>
                                 )}
-                            </div>
 
-                            <h2 className="text-xl font-black text-gray-900 mb-2 group-hover:text-brand-600 transition-colors">
-                                {cat.nameAr}
-                            </h2>
-
-                            {cat._count?.products !== undefined && (
-                                <p className="text-xs font-bold text-brand-400 uppercase tracking-widest mb-6">
-                                    {cat._count.products} منتج متوفر
-                                </p>
-                            )}
-
-                            <div className="mt-auto w-full pt-6 border-t border-slate-50 flex items-center justify-center gap-2 text-brand-600 font-black text-sm group-hover:gap-4 transition-all">
-                                <span>تصفح الآن</span>
-                                <ArrowLeft className="w-4 h-4" />
-                            </div>
-                        </Link>
-                    ))}
+                                <div className="mt-auto w-full pt-6 border-t border-slate-50 flex items-center justify-center gap-2 text-brand-600 font-black text-sm group-hover:gap-4 transition-all">
+                                    <span>تصفح الآن</span>
+                                    <ArrowLeft className="w-4 h-4" />
+                                </div>
+                            </Link>
+                        );
+                    })}
 
                     {/* Empty State */}
                     {categories.length === 0 && (

@@ -111,9 +111,9 @@ export default function ProductCard({ product, compact = false }: Props) {
                     </div>
                 )}
 
-                {/* Quick-add overlay — appears on hover */}
+                {/* Quick-add overlay — hover only on desktop (md+) */}
                 {!isOutOfStock && (
-                    <div className="absolute inset-x-0 bottom-0 z-10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out p-3">
+                    <div className="hidden md:block absolute inset-x-0 bottom-0 z-10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out p-3">
                         <button
                             onClick={handleAdd}
                             className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold
@@ -139,7 +139,7 @@ export default function ProductCard({ product, compact = false }: Props) {
                             fill
                             unoptimized
                             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                            className="object-cover group-hover:scale-[1.06] transition-transform duration-500 ease-out"
+                            className="object-cover md:group-hover:scale-[1.06] transition-transform duration-500 ease-out"
                         />
                     ) : (
                         <div className="w-full h-full flex items-center justify-center bg-brand-50/50 dark:bg-brand-950/20 text-brand-200 dark:text-brand-800">

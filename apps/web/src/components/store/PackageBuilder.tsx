@@ -176,12 +176,24 @@ export default function PackageBuilder() {
                                         <div className="p-3">
                                             <p className="text-xs font-bold text-gray-800 line-clamp-2 mb-1">{product.nameAr}</p>
                                             <p className="text-brand-600 font-black text-sm mb-2">{formatKwd(price)}</p>
-                                            <button
-                                                onClick={() => addItem(product)}
-                                                className="w-full flex items-center justify-center gap-1 py-2 bg-brand-50 hover:bg-brand-100 text-brand-700 font-bold text-xs rounded-xl transition-all"
-                                            >
-                                                <Plus className="w-3.5 h-3.5" /> أضف للباقة
-                                            </button>
+                                            {inPkg ? (
+                                                <button
+                                                    onClick={() => remove_(product.id)}
+                                                    className="w-full flex items-center justify-center gap-1 py-2 bg-green-50 text-green-700 hover:bg-red-50 hover:text-red-600 font-bold text-xs rounded-xl transition-all group"
+                                                >
+                                                    <CheckCircle2 className="w-3.5 h-3.5 group-hover:hidden" />
+                                                    <Trash2 className="w-3.5 h-3.5 hidden group-hover:block" />
+                                                    <span className="group-hover:hidden">تمت الإضافة للباقة</span>
+                                                    <span className="hidden group-hover:block">إزالة من الباقة</span>
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    onClick={() => addItem(product)}
+                                                    className="w-full flex items-center justify-center gap-1 py-2 bg-brand-50 hover:bg-brand-100 text-brand-700 font-bold text-xs rounded-xl transition-all"
+                                                >
+                                                    <Plus className="w-3.5 h-3.5" /> أضف للباقة
+                                                </button>
+                                            )}
                                         </div>
                                     </div>
                                 );

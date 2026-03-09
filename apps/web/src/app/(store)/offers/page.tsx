@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import ProductCard from '@/components/store/ProductCard';
 import PackageBuilder from '@/components/store/PackageBuilder';
+import LuckyWheel from '@/components/store/LuckyWheel';
 import { Tag, Sparkles, Percent, Calendar } from 'lucide-react';
 import Link from 'next/link';
 
@@ -77,6 +78,11 @@ export default async function OffersPage() {
                         </div>
                     </div>
                 </div>
+            </section>
+
+            {/* ── LUCKY WHEEL SECTION ── */}
+            <section className="max-w-7xl mx-auto px-4 relative z-20 -mt-10 mb-20 lg:-mt-20">
+                <LuckyWheel />
             </section>
 
             {/* ── PRODUCTS ── */}

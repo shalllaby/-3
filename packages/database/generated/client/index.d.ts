@@ -88,6 +88,16 @@ export type Review = $Result.DefaultSelection<Prisma.$ReviewPayload>
  * 
  */
 export type Coupon = $Result.DefaultSelection<Prisma.$CouponPayload>
+/**
+ * Model LuckyWheelReward
+ * 
+ */
+export type LuckyWheelReward = $Result.DefaultSelection<Prisma.$LuckyWheelRewardPayload>
+/**
+ * Model LuckyWheelSpin
+ * 
+ */
+export type LuckyWheelSpin = $Result.DefaultSelection<Prisma.$LuckyWheelSpinPayload>
 
 /**
  * Enums
@@ -477,6 +487,26 @@ export class PrismaClient<
     * ```
     */
   get coupon(): Prisma.CouponDelegate<ExtArgs>;
+
+  /**
+   * `prisma.luckyWheelReward`: Exposes CRUD operations for the **LuckyWheelReward** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LuckyWheelRewards
+    * const luckyWheelRewards = await prisma.luckyWheelReward.findMany()
+    * ```
+    */
+  get luckyWheelReward(): Prisma.LuckyWheelRewardDelegate<ExtArgs>;
+
+  /**
+   * `prisma.luckyWheelSpin`: Exposes CRUD operations for the **LuckyWheelSpin** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more LuckyWheelSpins
+    * const luckyWheelSpins = await prisma.luckyWheelSpin.findMany()
+    * ```
+    */
+  get luckyWheelSpin(): Prisma.LuckyWheelSpinDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -932,7 +962,9 @@ export namespace Prisma {
     PackageItem: 'PackageItem',
     Referral: 'Referral',
     Review: 'Review',
-    Coupon: 'Coupon'
+    Coupon: 'Coupon',
+    LuckyWheelReward: 'LuckyWheelReward',
+    LuckyWheelSpin: 'LuckyWheelSpin'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -948,7 +980,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "address" | "category" | "tag" | "productTag" | "productAttribute" | "brand" | "product" | "order" | "orderItem" | "package" | "packageItem" | "referral" | "review" | "coupon"
+      modelProps: "user" | "address" | "category" | "tag" | "productTag" | "productAttribute" | "brand" | "product" | "order" | "orderItem" | "package" | "packageItem" | "referral" | "review" | "coupon" | "luckyWheelReward" | "luckyWheelSpin"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2002,6 +2034,146 @@ export namespace Prisma {
           }
         }
       }
+      LuckyWheelReward: {
+        payload: Prisma.$LuckyWheelRewardPayload<ExtArgs>
+        fields: Prisma.LuckyWheelRewardFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LuckyWheelRewardFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelRewardPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LuckyWheelRewardFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelRewardPayload>
+          }
+          findFirst: {
+            args: Prisma.LuckyWheelRewardFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelRewardPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LuckyWheelRewardFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelRewardPayload>
+          }
+          findMany: {
+            args: Prisma.LuckyWheelRewardFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelRewardPayload>[]
+          }
+          create: {
+            args: Prisma.LuckyWheelRewardCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelRewardPayload>
+          }
+          createMany: {
+            args: Prisma.LuckyWheelRewardCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LuckyWheelRewardCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelRewardPayload>[]
+          }
+          delete: {
+            args: Prisma.LuckyWheelRewardDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelRewardPayload>
+          }
+          update: {
+            args: Prisma.LuckyWheelRewardUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelRewardPayload>
+          }
+          deleteMany: {
+            args: Prisma.LuckyWheelRewardDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LuckyWheelRewardUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.LuckyWheelRewardUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelRewardPayload>
+          }
+          aggregate: {
+            args: Prisma.LuckyWheelRewardAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLuckyWheelReward>
+          }
+          groupBy: {
+            args: Prisma.LuckyWheelRewardGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LuckyWheelRewardGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LuckyWheelRewardCountArgs<ExtArgs>
+            result: $Utils.Optional<LuckyWheelRewardCountAggregateOutputType> | number
+          }
+        }
+      }
+      LuckyWheelSpin: {
+        payload: Prisma.$LuckyWheelSpinPayload<ExtArgs>
+        fields: Prisma.LuckyWheelSpinFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LuckyWheelSpinFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelSpinPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LuckyWheelSpinFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelSpinPayload>
+          }
+          findFirst: {
+            args: Prisma.LuckyWheelSpinFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelSpinPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LuckyWheelSpinFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelSpinPayload>
+          }
+          findMany: {
+            args: Prisma.LuckyWheelSpinFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelSpinPayload>[]
+          }
+          create: {
+            args: Prisma.LuckyWheelSpinCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelSpinPayload>
+          }
+          createMany: {
+            args: Prisma.LuckyWheelSpinCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LuckyWheelSpinCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelSpinPayload>[]
+          }
+          delete: {
+            args: Prisma.LuckyWheelSpinDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelSpinPayload>
+          }
+          update: {
+            args: Prisma.LuckyWheelSpinUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelSpinPayload>
+          }
+          deleteMany: {
+            args: Prisma.LuckyWheelSpinDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LuckyWheelSpinUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.LuckyWheelSpinUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LuckyWheelSpinPayload>
+          }
+          aggregate: {
+            args: Prisma.LuckyWheelSpinAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLuckyWheelSpin>
+          }
+          groupBy: {
+            args: Prisma.LuckyWheelSpinGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LuckyWheelSpinGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LuckyWheelSpinCountArgs<ExtArgs>
+            result: $Utils.Optional<LuckyWheelSpinCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2168,6 +2340,7 @@ export namespace Prisma {
     packages: number
     coupons: number
     reviews: number
+    luckyWheelSpins: number
     referralsMade: number
   }
 
@@ -2177,6 +2350,7 @@ export namespace Prisma {
     packages?: boolean | UserCountOutputTypeCountPackagesArgs
     coupons?: boolean | UserCountOutputTypeCountCouponsArgs
     reviews?: boolean | UserCountOutputTypeCountReviewsArgs
+    luckyWheelSpins?: boolean | UserCountOutputTypeCountLuckyWheelSpinsArgs
     referralsMade?: boolean | UserCountOutputTypeCountReferralsMadeArgs
   }
 
@@ -2224,6 +2398,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountReviewsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ReviewWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountLuckyWheelSpinsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LuckyWheelSpinWhereInput
   }
 
   /**
@@ -2799,6 +2980,7 @@ export namespace Prisma {
     packages?: boolean | User$packagesArgs<ExtArgs>
     coupons?: boolean | User$couponsArgs<ExtArgs>
     reviews?: boolean | User$reviewsArgs<ExtArgs>
+    luckyWheelSpins?: boolean | User$luckyWheelSpinsArgs<ExtArgs>
     referralsMade?: boolean | User$referralsMadeArgs<ExtArgs>
     referralReceived?: boolean | User$referralReceivedArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2850,6 +3032,7 @@ export namespace Prisma {
     packages?: boolean | User$packagesArgs<ExtArgs>
     coupons?: boolean | User$couponsArgs<ExtArgs>
     reviews?: boolean | User$reviewsArgs<ExtArgs>
+    luckyWheelSpins?: boolean | User$luckyWheelSpinsArgs<ExtArgs>
     referralsMade?: boolean | User$referralsMadeArgs<ExtArgs>
     referralReceived?: boolean | User$referralReceivedArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -2864,6 +3047,7 @@ export namespace Prisma {
       packages: Prisma.$PackagePayload<ExtArgs>[]
       coupons: Prisma.$CouponPayload<ExtArgs>[]
       reviews: Prisma.$ReviewPayload<ExtArgs>[]
+      luckyWheelSpins: Prisma.$LuckyWheelSpinPayload<ExtArgs>[]
       referralsMade: Prisma.$ReferralPayload<ExtArgs>[]
       referralReceived: Prisma.$ReferralPayload<ExtArgs> | null
     }
@@ -3254,6 +3438,7 @@ export namespace Prisma {
     packages<T extends User$packagesArgs<ExtArgs> = {}>(args?: Subset<T, User$packagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PackagePayload<ExtArgs>, T, "findMany"> | Null>
     coupons<T extends User$couponsArgs<ExtArgs> = {}>(args?: Subset<T, User$couponsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CouponPayload<ExtArgs>, T, "findMany"> | Null>
     reviews<T extends User$reviewsArgs<ExtArgs> = {}>(args?: Subset<T, User$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany"> | Null>
+    luckyWheelSpins<T extends User$luckyWheelSpinsArgs<ExtArgs> = {}>(args?: Subset<T, User$luckyWheelSpinsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LuckyWheelSpinPayload<ExtArgs>, T, "findMany"> | Null>
     referralsMade<T extends User$referralsMadeArgs<ExtArgs> = {}>(args?: Subset<T, User$referralsMadeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReferralPayload<ExtArgs>, T, "findMany"> | Null>
     referralReceived<T extends User$referralReceivedArgs<ExtArgs> = {}>(args?: Subset<T, User$referralReceivedArgs<ExtArgs>>): Prisma__ReferralClient<$Result.GetResult<Prisma.$ReferralPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
@@ -3713,6 +3898,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ReviewScalarFieldEnum | ReviewScalarFieldEnum[]
+  }
+
+  /**
+   * User.luckyWheelSpins
+   */
+  export type User$luckyWheelSpinsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelSpin
+     */
+    select?: LuckyWheelSpinSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LuckyWheelSpinInclude<ExtArgs> | null
+    where?: LuckyWheelSpinWhereInput
+    orderBy?: LuckyWheelSpinOrderByWithRelationInput | LuckyWheelSpinOrderByWithRelationInput[]
+    cursor?: LuckyWheelSpinWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LuckyWheelSpinScalarFieldEnum | LuckyWheelSpinScalarFieldEnum[]
   }
 
   /**
@@ -17094,10 +17299,14 @@ export namespace Prisma {
 
   export type CouponAvgAggregateOutputType = {
     discountPct: number | null
+    usageLimit: number | null
+    usedCount: number | null
   }
 
   export type CouponSumAggregateOutputType = {
     discountPct: number | null
+    usageLimit: number | null
+    usedCount: number | null
   }
 
   export type CouponMinAggregateOutputType = {
@@ -17106,6 +17315,8 @@ export namespace Prisma {
     code: string | null
     discountPct: number | null
     isUsed: boolean | null
+    usageLimit: number | null
+    usedCount: number | null
     expiresAt: Date | null
     createdAt: Date | null
   }
@@ -17116,6 +17327,8 @@ export namespace Prisma {
     code: string | null
     discountPct: number | null
     isUsed: boolean | null
+    usageLimit: number | null
+    usedCount: number | null
     expiresAt: Date | null
     createdAt: Date | null
   }
@@ -17126,6 +17339,8 @@ export namespace Prisma {
     code: number
     discountPct: number
     isUsed: number
+    usageLimit: number
+    usedCount: number
     expiresAt: number
     createdAt: number
     _all: number
@@ -17134,10 +17349,14 @@ export namespace Prisma {
 
   export type CouponAvgAggregateInputType = {
     discountPct?: true
+    usageLimit?: true
+    usedCount?: true
   }
 
   export type CouponSumAggregateInputType = {
     discountPct?: true
+    usageLimit?: true
+    usedCount?: true
   }
 
   export type CouponMinAggregateInputType = {
@@ -17146,6 +17365,8 @@ export namespace Prisma {
     code?: true
     discountPct?: true
     isUsed?: true
+    usageLimit?: true
+    usedCount?: true
     expiresAt?: true
     createdAt?: true
   }
@@ -17156,6 +17377,8 @@ export namespace Prisma {
     code?: true
     discountPct?: true
     isUsed?: true
+    usageLimit?: true
+    usedCount?: true
     expiresAt?: true
     createdAt?: true
   }
@@ -17166,6 +17389,8 @@ export namespace Prisma {
     code?: true
     discountPct?: true
     isUsed?: true
+    usageLimit?: true
+    usedCount?: true
     expiresAt?: true
     createdAt?: true
     _all?: true
@@ -17259,10 +17484,12 @@ export namespace Prisma {
 
   export type CouponGroupByOutputType = {
     id: string
-    userId: string
+    userId: string | null
     code: string
     discountPct: number
     isUsed: boolean
+    usageLimit: number
+    usedCount: number
     expiresAt: Date
     createdAt: Date
     _count: CouponCountAggregateOutputType | null
@@ -17292,9 +17519,11 @@ export namespace Prisma {
     code?: boolean
     discountPct?: boolean
     isUsed?: boolean
+    usageLimit?: boolean
+    usedCount?: boolean
     expiresAt?: boolean
     createdAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | Coupon$userArgs<ExtArgs>
   }, ExtArgs["result"]["coupon"]>
 
   export type CouponSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -17303,9 +17532,11 @@ export namespace Prisma {
     code?: boolean
     discountPct?: boolean
     isUsed?: boolean
+    usageLimit?: boolean
+    usedCount?: boolean
     expiresAt?: boolean
     createdAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | Coupon$userArgs<ExtArgs>
   }, ExtArgs["result"]["coupon"]>
 
   export type CouponSelectScalar = {
@@ -17314,28 +17545,32 @@ export namespace Prisma {
     code?: boolean
     discountPct?: boolean
     isUsed?: boolean
+    usageLimit?: boolean
+    usedCount?: boolean
     expiresAt?: boolean
     createdAt?: boolean
   }
 
   export type CouponInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | Coupon$userArgs<ExtArgs>
   }
   export type CouponIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | Coupon$userArgs<ExtArgs>
   }
 
   export type $CouponPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Coupon"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      userId: string
+      userId: string | null
       code: string
       discountPct: number
       isUsed: boolean
+      usageLimit: number
+      usedCount: number
       expiresAt: Date
       createdAt: Date
     }, ExtArgs["result"]["coupon"]>
@@ -17702,7 +17937,7 @@ export namespace Prisma {
    */
   export interface Prisma__CouponClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    user<T extends Coupon$userArgs<ExtArgs> = {}>(args?: Subset<T, Coupon$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -17737,6 +17972,8 @@ export namespace Prisma {
     readonly code: FieldRef<"Coupon", 'String'>
     readonly discountPct: FieldRef<"Coupon", 'Int'>
     readonly isUsed: FieldRef<"Coupon", 'Boolean'>
+    readonly usageLimit: FieldRef<"Coupon", 'Int'>
+    readonly usedCount: FieldRef<"Coupon", 'Int'>
     readonly expiresAt: FieldRef<"Coupon", 'DateTime'>
     readonly createdAt: FieldRef<"Coupon", 'DateTime'>
   }
@@ -18057,6 +18294,21 @@ export namespace Prisma {
   }
 
   /**
+   * Coupon.user
+   */
+  export type Coupon$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
    * Coupon without action
    */
   export type CouponDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -18068,6 +18320,1899 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: CouponInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LuckyWheelReward
+   */
+
+  export type AggregateLuckyWheelReward = {
+    _count: LuckyWheelRewardCountAggregateOutputType | null
+    _avg: LuckyWheelRewardAvgAggregateOutputType | null
+    _sum: LuckyWheelRewardSumAggregateOutputType | null
+    _min: LuckyWheelRewardMinAggregateOutputType | null
+    _max: LuckyWheelRewardMaxAggregateOutputType | null
+  }
+
+  export type LuckyWheelRewardAvgAggregateOutputType = {
+    probability: number | null
+  }
+
+  export type LuckyWheelRewardSumAggregateOutputType = {
+    probability: number | null
+  }
+
+  export type LuckyWheelRewardMinAggregateOutputType = {
+    id: string | null
+    type: string | null
+    value: string | null
+    probability: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LuckyWheelRewardMaxAggregateOutputType = {
+    id: string | null
+    type: string | null
+    value: string | null
+    probability: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LuckyWheelRewardCountAggregateOutputType = {
+    id: number
+    type: number
+    value: number
+    probability: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type LuckyWheelRewardAvgAggregateInputType = {
+    probability?: true
+  }
+
+  export type LuckyWheelRewardSumAggregateInputType = {
+    probability?: true
+  }
+
+  export type LuckyWheelRewardMinAggregateInputType = {
+    id?: true
+    type?: true
+    value?: true
+    probability?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LuckyWheelRewardMaxAggregateInputType = {
+    id?: true
+    type?: true
+    value?: true
+    probability?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LuckyWheelRewardCountAggregateInputType = {
+    id?: true
+    type?: true
+    value?: true
+    probability?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type LuckyWheelRewardAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LuckyWheelReward to aggregate.
+     */
+    where?: LuckyWheelRewardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LuckyWheelRewards to fetch.
+     */
+    orderBy?: LuckyWheelRewardOrderByWithRelationInput | LuckyWheelRewardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LuckyWheelRewardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LuckyWheelRewards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LuckyWheelRewards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LuckyWheelRewards
+    **/
+    _count?: true | LuckyWheelRewardCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LuckyWheelRewardAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LuckyWheelRewardSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LuckyWheelRewardMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LuckyWheelRewardMaxAggregateInputType
+  }
+
+  export type GetLuckyWheelRewardAggregateType<T extends LuckyWheelRewardAggregateArgs> = {
+        [P in keyof T & keyof AggregateLuckyWheelReward]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLuckyWheelReward[P]>
+      : GetScalarType<T[P], AggregateLuckyWheelReward[P]>
+  }
+
+
+
+
+  export type LuckyWheelRewardGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LuckyWheelRewardWhereInput
+    orderBy?: LuckyWheelRewardOrderByWithAggregationInput | LuckyWheelRewardOrderByWithAggregationInput[]
+    by: LuckyWheelRewardScalarFieldEnum[] | LuckyWheelRewardScalarFieldEnum
+    having?: LuckyWheelRewardScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LuckyWheelRewardCountAggregateInputType | true
+    _avg?: LuckyWheelRewardAvgAggregateInputType
+    _sum?: LuckyWheelRewardSumAggregateInputType
+    _min?: LuckyWheelRewardMinAggregateInputType
+    _max?: LuckyWheelRewardMaxAggregateInputType
+  }
+
+  export type LuckyWheelRewardGroupByOutputType = {
+    id: string
+    type: string
+    value: string
+    probability: number
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: LuckyWheelRewardCountAggregateOutputType | null
+    _avg: LuckyWheelRewardAvgAggregateOutputType | null
+    _sum: LuckyWheelRewardSumAggregateOutputType | null
+    _min: LuckyWheelRewardMinAggregateOutputType | null
+    _max: LuckyWheelRewardMaxAggregateOutputType | null
+  }
+
+  type GetLuckyWheelRewardGroupByPayload<T extends LuckyWheelRewardGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LuckyWheelRewardGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LuckyWheelRewardGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LuckyWheelRewardGroupByOutputType[P]>
+            : GetScalarType<T[P], LuckyWheelRewardGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LuckyWheelRewardSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    type?: boolean
+    value?: boolean
+    probability?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["luckyWheelReward"]>
+
+  export type LuckyWheelRewardSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    type?: boolean
+    value?: boolean
+    probability?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["luckyWheelReward"]>
+
+  export type LuckyWheelRewardSelectScalar = {
+    id?: boolean
+    type?: boolean
+    value?: boolean
+    probability?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+
+  export type $LuckyWheelRewardPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LuckyWheelReward"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      type: string
+      value: string
+      probability: number
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["luckyWheelReward"]>
+    composites: {}
+  }
+
+  type LuckyWheelRewardGetPayload<S extends boolean | null | undefined | LuckyWheelRewardDefaultArgs> = $Result.GetResult<Prisma.$LuckyWheelRewardPayload, S>
+
+  type LuckyWheelRewardCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<LuckyWheelRewardFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: LuckyWheelRewardCountAggregateInputType | true
+    }
+
+  export interface LuckyWheelRewardDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LuckyWheelReward'], meta: { name: 'LuckyWheelReward' } }
+    /**
+     * Find zero or one LuckyWheelReward that matches the filter.
+     * @param {LuckyWheelRewardFindUniqueArgs} args - Arguments to find a LuckyWheelReward
+     * @example
+     * // Get one LuckyWheelReward
+     * const luckyWheelReward = await prisma.luckyWheelReward.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LuckyWheelRewardFindUniqueArgs>(args: SelectSubset<T, LuckyWheelRewardFindUniqueArgs<ExtArgs>>): Prisma__LuckyWheelRewardClient<$Result.GetResult<Prisma.$LuckyWheelRewardPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one LuckyWheelReward that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {LuckyWheelRewardFindUniqueOrThrowArgs} args - Arguments to find a LuckyWheelReward
+     * @example
+     * // Get one LuckyWheelReward
+     * const luckyWheelReward = await prisma.luckyWheelReward.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LuckyWheelRewardFindUniqueOrThrowArgs>(args: SelectSubset<T, LuckyWheelRewardFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LuckyWheelRewardClient<$Result.GetResult<Prisma.$LuckyWheelRewardPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first LuckyWheelReward that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelRewardFindFirstArgs} args - Arguments to find a LuckyWheelReward
+     * @example
+     * // Get one LuckyWheelReward
+     * const luckyWheelReward = await prisma.luckyWheelReward.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LuckyWheelRewardFindFirstArgs>(args?: SelectSubset<T, LuckyWheelRewardFindFirstArgs<ExtArgs>>): Prisma__LuckyWheelRewardClient<$Result.GetResult<Prisma.$LuckyWheelRewardPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first LuckyWheelReward that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelRewardFindFirstOrThrowArgs} args - Arguments to find a LuckyWheelReward
+     * @example
+     * // Get one LuckyWheelReward
+     * const luckyWheelReward = await prisma.luckyWheelReward.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LuckyWheelRewardFindFirstOrThrowArgs>(args?: SelectSubset<T, LuckyWheelRewardFindFirstOrThrowArgs<ExtArgs>>): Prisma__LuckyWheelRewardClient<$Result.GetResult<Prisma.$LuckyWheelRewardPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more LuckyWheelRewards that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelRewardFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LuckyWheelRewards
+     * const luckyWheelRewards = await prisma.luckyWheelReward.findMany()
+     * 
+     * // Get first 10 LuckyWheelRewards
+     * const luckyWheelRewards = await prisma.luckyWheelReward.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const luckyWheelRewardWithIdOnly = await prisma.luckyWheelReward.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LuckyWheelRewardFindManyArgs>(args?: SelectSubset<T, LuckyWheelRewardFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LuckyWheelRewardPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a LuckyWheelReward.
+     * @param {LuckyWheelRewardCreateArgs} args - Arguments to create a LuckyWheelReward.
+     * @example
+     * // Create one LuckyWheelReward
+     * const LuckyWheelReward = await prisma.luckyWheelReward.create({
+     *   data: {
+     *     // ... data to create a LuckyWheelReward
+     *   }
+     * })
+     * 
+     */
+    create<T extends LuckyWheelRewardCreateArgs>(args: SelectSubset<T, LuckyWheelRewardCreateArgs<ExtArgs>>): Prisma__LuckyWheelRewardClient<$Result.GetResult<Prisma.$LuckyWheelRewardPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many LuckyWheelRewards.
+     * @param {LuckyWheelRewardCreateManyArgs} args - Arguments to create many LuckyWheelRewards.
+     * @example
+     * // Create many LuckyWheelRewards
+     * const luckyWheelReward = await prisma.luckyWheelReward.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LuckyWheelRewardCreateManyArgs>(args?: SelectSubset<T, LuckyWheelRewardCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LuckyWheelRewards and returns the data saved in the database.
+     * @param {LuckyWheelRewardCreateManyAndReturnArgs} args - Arguments to create many LuckyWheelRewards.
+     * @example
+     * // Create many LuckyWheelRewards
+     * const luckyWheelReward = await prisma.luckyWheelReward.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LuckyWheelRewards and only return the `id`
+     * const luckyWheelRewardWithIdOnly = await prisma.luckyWheelReward.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LuckyWheelRewardCreateManyAndReturnArgs>(args?: SelectSubset<T, LuckyWheelRewardCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LuckyWheelRewardPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a LuckyWheelReward.
+     * @param {LuckyWheelRewardDeleteArgs} args - Arguments to delete one LuckyWheelReward.
+     * @example
+     * // Delete one LuckyWheelReward
+     * const LuckyWheelReward = await prisma.luckyWheelReward.delete({
+     *   where: {
+     *     // ... filter to delete one LuckyWheelReward
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LuckyWheelRewardDeleteArgs>(args: SelectSubset<T, LuckyWheelRewardDeleteArgs<ExtArgs>>): Prisma__LuckyWheelRewardClient<$Result.GetResult<Prisma.$LuckyWheelRewardPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one LuckyWheelReward.
+     * @param {LuckyWheelRewardUpdateArgs} args - Arguments to update one LuckyWheelReward.
+     * @example
+     * // Update one LuckyWheelReward
+     * const luckyWheelReward = await prisma.luckyWheelReward.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LuckyWheelRewardUpdateArgs>(args: SelectSubset<T, LuckyWheelRewardUpdateArgs<ExtArgs>>): Prisma__LuckyWheelRewardClient<$Result.GetResult<Prisma.$LuckyWheelRewardPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more LuckyWheelRewards.
+     * @param {LuckyWheelRewardDeleteManyArgs} args - Arguments to filter LuckyWheelRewards to delete.
+     * @example
+     * // Delete a few LuckyWheelRewards
+     * const { count } = await prisma.luckyWheelReward.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LuckyWheelRewardDeleteManyArgs>(args?: SelectSubset<T, LuckyWheelRewardDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LuckyWheelRewards.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelRewardUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LuckyWheelRewards
+     * const luckyWheelReward = await prisma.luckyWheelReward.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LuckyWheelRewardUpdateManyArgs>(args: SelectSubset<T, LuckyWheelRewardUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one LuckyWheelReward.
+     * @param {LuckyWheelRewardUpsertArgs} args - Arguments to update or create a LuckyWheelReward.
+     * @example
+     * // Update or create a LuckyWheelReward
+     * const luckyWheelReward = await prisma.luckyWheelReward.upsert({
+     *   create: {
+     *     // ... data to create a LuckyWheelReward
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LuckyWheelReward we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LuckyWheelRewardUpsertArgs>(args: SelectSubset<T, LuckyWheelRewardUpsertArgs<ExtArgs>>): Prisma__LuckyWheelRewardClient<$Result.GetResult<Prisma.$LuckyWheelRewardPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of LuckyWheelRewards.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelRewardCountArgs} args - Arguments to filter LuckyWheelRewards to count.
+     * @example
+     * // Count the number of LuckyWheelRewards
+     * const count = await prisma.luckyWheelReward.count({
+     *   where: {
+     *     // ... the filter for the LuckyWheelRewards we want to count
+     *   }
+     * })
+    **/
+    count<T extends LuckyWheelRewardCountArgs>(
+      args?: Subset<T, LuckyWheelRewardCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LuckyWheelRewardCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LuckyWheelReward.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelRewardAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LuckyWheelRewardAggregateArgs>(args: Subset<T, LuckyWheelRewardAggregateArgs>): Prisma.PrismaPromise<GetLuckyWheelRewardAggregateType<T>>
+
+    /**
+     * Group by LuckyWheelReward.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelRewardGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LuckyWheelRewardGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LuckyWheelRewardGroupByArgs['orderBy'] }
+        : { orderBy?: LuckyWheelRewardGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LuckyWheelRewardGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLuckyWheelRewardGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LuckyWheelReward model
+   */
+  readonly fields: LuckyWheelRewardFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LuckyWheelReward.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LuckyWheelRewardClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LuckyWheelReward model
+   */ 
+  interface LuckyWheelRewardFieldRefs {
+    readonly id: FieldRef<"LuckyWheelReward", 'String'>
+    readonly type: FieldRef<"LuckyWheelReward", 'String'>
+    readonly value: FieldRef<"LuckyWheelReward", 'String'>
+    readonly probability: FieldRef<"LuckyWheelReward", 'Float'>
+    readonly isActive: FieldRef<"LuckyWheelReward", 'Boolean'>
+    readonly createdAt: FieldRef<"LuckyWheelReward", 'DateTime'>
+    readonly updatedAt: FieldRef<"LuckyWheelReward", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LuckyWheelReward findUnique
+   */
+  export type LuckyWheelRewardFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelReward
+     */
+    select?: LuckyWheelRewardSelect<ExtArgs> | null
+    /**
+     * Filter, which LuckyWheelReward to fetch.
+     */
+    where: LuckyWheelRewardWhereUniqueInput
+  }
+
+  /**
+   * LuckyWheelReward findUniqueOrThrow
+   */
+  export type LuckyWheelRewardFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelReward
+     */
+    select?: LuckyWheelRewardSelect<ExtArgs> | null
+    /**
+     * Filter, which LuckyWheelReward to fetch.
+     */
+    where: LuckyWheelRewardWhereUniqueInput
+  }
+
+  /**
+   * LuckyWheelReward findFirst
+   */
+  export type LuckyWheelRewardFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelReward
+     */
+    select?: LuckyWheelRewardSelect<ExtArgs> | null
+    /**
+     * Filter, which LuckyWheelReward to fetch.
+     */
+    where?: LuckyWheelRewardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LuckyWheelRewards to fetch.
+     */
+    orderBy?: LuckyWheelRewardOrderByWithRelationInput | LuckyWheelRewardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LuckyWheelRewards.
+     */
+    cursor?: LuckyWheelRewardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LuckyWheelRewards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LuckyWheelRewards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LuckyWheelRewards.
+     */
+    distinct?: LuckyWheelRewardScalarFieldEnum | LuckyWheelRewardScalarFieldEnum[]
+  }
+
+  /**
+   * LuckyWheelReward findFirstOrThrow
+   */
+  export type LuckyWheelRewardFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelReward
+     */
+    select?: LuckyWheelRewardSelect<ExtArgs> | null
+    /**
+     * Filter, which LuckyWheelReward to fetch.
+     */
+    where?: LuckyWheelRewardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LuckyWheelRewards to fetch.
+     */
+    orderBy?: LuckyWheelRewardOrderByWithRelationInput | LuckyWheelRewardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LuckyWheelRewards.
+     */
+    cursor?: LuckyWheelRewardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LuckyWheelRewards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LuckyWheelRewards.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LuckyWheelRewards.
+     */
+    distinct?: LuckyWheelRewardScalarFieldEnum | LuckyWheelRewardScalarFieldEnum[]
+  }
+
+  /**
+   * LuckyWheelReward findMany
+   */
+  export type LuckyWheelRewardFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelReward
+     */
+    select?: LuckyWheelRewardSelect<ExtArgs> | null
+    /**
+     * Filter, which LuckyWheelRewards to fetch.
+     */
+    where?: LuckyWheelRewardWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LuckyWheelRewards to fetch.
+     */
+    orderBy?: LuckyWheelRewardOrderByWithRelationInput | LuckyWheelRewardOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LuckyWheelRewards.
+     */
+    cursor?: LuckyWheelRewardWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LuckyWheelRewards from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LuckyWheelRewards.
+     */
+    skip?: number
+    distinct?: LuckyWheelRewardScalarFieldEnum | LuckyWheelRewardScalarFieldEnum[]
+  }
+
+  /**
+   * LuckyWheelReward create
+   */
+  export type LuckyWheelRewardCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelReward
+     */
+    select?: LuckyWheelRewardSelect<ExtArgs> | null
+    /**
+     * The data needed to create a LuckyWheelReward.
+     */
+    data: XOR<LuckyWheelRewardCreateInput, LuckyWheelRewardUncheckedCreateInput>
+  }
+
+  /**
+   * LuckyWheelReward createMany
+   */
+  export type LuckyWheelRewardCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LuckyWheelRewards.
+     */
+    data: LuckyWheelRewardCreateManyInput | LuckyWheelRewardCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LuckyWheelReward createManyAndReturn
+   */
+  export type LuckyWheelRewardCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelReward
+     */
+    select?: LuckyWheelRewardSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many LuckyWheelRewards.
+     */
+    data: LuckyWheelRewardCreateManyInput | LuckyWheelRewardCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LuckyWheelReward update
+   */
+  export type LuckyWheelRewardUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelReward
+     */
+    select?: LuckyWheelRewardSelect<ExtArgs> | null
+    /**
+     * The data needed to update a LuckyWheelReward.
+     */
+    data: XOR<LuckyWheelRewardUpdateInput, LuckyWheelRewardUncheckedUpdateInput>
+    /**
+     * Choose, which LuckyWheelReward to update.
+     */
+    where: LuckyWheelRewardWhereUniqueInput
+  }
+
+  /**
+   * LuckyWheelReward updateMany
+   */
+  export type LuckyWheelRewardUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LuckyWheelRewards.
+     */
+    data: XOR<LuckyWheelRewardUpdateManyMutationInput, LuckyWheelRewardUncheckedUpdateManyInput>
+    /**
+     * Filter which LuckyWheelRewards to update
+     */
+    where?: LuckyWheelRewardWhereInput
+  }
+
+  /**
+   * LuckyWheelReward upsert
+   */
+  export type LuckyWheelRewardUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelReward
+     */
+    select?: LuckyWheelRewardSelect<ExtArgs> | null
+    /**
+     * The filter to search for the LuckyWheelReward to update in case it exists.
+     */
+    where: LuckyWheelRewardWhereUniqueInput
+    /**
+     * In case the LuckyWheelReward found by the `where` argument doesn't exist, create a new LuckyWheelReward with this data.
+     */
+    create: XOR<LuckyWheelRewardCreateInput, LuckyWheelRewardUncheckedCreateInput>
+    /**
+     * In case the LuckyWheelReward was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LuckyWheelRewardUpdateInput, LuckyWheelRewardUncheckedUpdateInput>
+  }
+
+  /**
+   * LuckyWheelReward delete
+   */
+  export type LuckyWheelRewardDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelReward
+     */
+    select?: LuckyWheelRewardSelect<ExtArgs> | null
+    /**
+     * Filter which LuckyWheelReward to delete.
+     */
+    where: LuckyWheelRewardWhereUniqueInput
+  }
+
+  /**
+   * LuckyWheelReward deleteMany
+   */
+  export type LuckyWheelRewardDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LuckyWheelRewards to delete
+     */
+    where?: LuckyWheelRewardWhereInput
+  }
+
+  /**
+   * LuckyWheelReward without action
+   */
+  export type LuckyWheelRewardDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelReward
+     */
+    select?: LuckyWheelRewardSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model LuckyWheelSpin
+   */
+
+  export type AggregateLuckyWheelSpin = {
+    _count: LuckyWheelSpinCountAggregateOutputType | null
+    _min: LuckyWheelSpinMinAggregateOutputType | null
+    _max: LuckyWheelSpinMaxAggregateOutputType | null
+  }
+
+  export type LuckyWheelSpinMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    rewardId: string | null
+    rewardType: string | null
+    rewardValue: string | null
+    couponCode: string | null
+    createdAt: Date | null
+  }
+
+  export type LuckyWheelSpinMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    rewardId: string | null
+    rewardType: string | null
+    rewardValue: string | null
+    couponCode: string | null
+    createdAt: Date | null
+  }
+
+  export type LuckyWheelSpinCountAggregateOutputType = {
+    id: number
+    userId: number
+    rewardId: number
+    rewardType: number
+    rewardValue: number
+    couponCode: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type LuckyWheelSpinMinAggregateInputType = {
+    id?: true
+    userId?: true
+    rewardId?: true
+    rewardType?: true
+    rewardValue?: true
+    couponCode?: true
+    createdAt?: true
+  }
+
+  export type LuckyWheelSpinMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    rewardId?: true
+    rewardType?: true
+    rewardValue?: true
+    couponCode?: true
+    createdAt?: true
+  }
+
+  export type LuckyWheelSpinCountAggregateInputType = {
+    id?: true
+    userId?: true
+    rewardId?: true
+    rewardType?: true
+    rewardValue?: true
+    couponCode?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type LuckyWheelSpinAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LuckyWheelSpin to aggregate.
+     */
+    where?: LuckyWheelSpinWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LuckyWheelSpins to fetch.
+     */
+    orderBy?: LuckyWheelSpinOrderByWithRelationInput | LuckyWheelSpinOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LuckyWheelSpinWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LuckyWheelSpins from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LuckyWheelSpins.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned LuckyWheelSpins
+    **/
+    _count?: true | LuckyWheelSpinCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LuckyWheelSpinMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LuckyWheelSpinMaxAggregateInputType
+  }
+
+  export type GetLuckyWheelSpinAggregateType<T extends LuckyWheelSpinAggregateArgs> = {
+        [P in keyof T & keyof AggregateLuckyWheelSpin]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLuckyWheelSpin[P]>
+      : GetScalarType<T[P], AggregateLuckyWheelSpin[P]>
+  }
+
+
+
+
+  export type LuckyWheelSpinGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LuckyWheelSpinWhereInput
+    orderBy?: LuckyWheelSpinOrderByWithAggregationInput | LuckyWheelSpinOrderByWithAggregationInput[]
+    by: LuckyWheelSpinScalarFieldEnum[] | LuckyWheelSpinScalarFieldEnum
+    having?: LuckyWheelSpinScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LuckyWheelSpinCountAggregateInputType | true
+    _min?: LuckyWheelSpinMinAggregateInputType
+    _max?: LuckyWheelSpinMaxAggregateInputType
+  }
+
+  export type LuckyWheelSpinGroupByOutputType = {
+    id: string
+    userId: string
+    rewardId: string | null
+    rewardType: string
+    rewardValue: string
+    couponCode: string | null
+    createdAt: Date
+    _count: LuckyWheelSpinCountAggregateOutputType | null
+    _min: LuckyWheelSpinMinAggregateOutputType | null
+    _max: LuckyWheelSpinMaxAggregateOutputType | null
+  }
+
+  type GetLuckyWheelSpinGroupByPayload<T extends LuckyWheelSpinGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LuckyWheelSpinGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LuckyWheelSpinGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LuckyWheelSpinGroupByOutputType[P]>
+            : GetScalarType<T[P], LuckyWheelSpinGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LuckyWheelSpinSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    rewardId?: boolean
+    rewardType?: boolean
+    rewardValue?: boolean
+    couponCode?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["luckyWheelSpin"]>
+
+  export type LuckyWheelSpinSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    rewardId?: boolean
+    rewardType?: boolean
+    rewardValue?: boolean
+    couponCode?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["luckyWheelSpin"]>
+
+  export type LuckyWheelSpinSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    rewardId?: boolean
+    rewardType?: boolean
+    rewardValue?: boolean
+    couponCode?: boolean
+    createdAt?: boolean
+  }
+
+  export type LuckyWheelSpinInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type LuckyWheelSpinIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $LuckyWheelSpinPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "LuckyWheelSpin"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      rewardId: string | null
+      rewardType: string
+      rewardValue: string
+      couponCode: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["luckyWheelSpin"]>
+    composites: {}
+  }
+
+  type LuckyWheelSpinGetPayload<S extends boolean | null | undefined | LuckyWheelSpinDefaultArgs> = $Result.GetResult<Prisma.$LuckyWheelSpinPayload, S>
+
+  type LuckyWheelSpinCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<LuckyWheelSpinFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: LuckyWheelSpinCountAggregateInputType | true
+    }
+
+  export interface LuckyWheelSpinDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['LuckyWheelSpin'], meta: { name: 'LuckyWheelSpin' } }
+    /**
+     * Find zero or one LuckyWheelSpin that matches the filter.
+     * @param {LuckyWheelSpinFindUniqueArgs} args - Arguments to find a LuckyWheelSpin
+     * @example
+     * // Get one LuckyWheelSpin
+     * const luckyWheelSpin = await prisma.luckyWheelSpin.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LuckyWheelSpinFindUniqueArgs>(args: SelectSubset<T, LuckyWheelSpinFindUniqueArgs<ExtArgs>>): Prisma__LuckyWheelSpinClient<$Result.GetResult<Prisma.$LuckyWheelSpinPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one LuckyWheelSpin that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {LuckyWheelSpinFindUniqueOrThrowArgs} args - Arguments to find a LuckyWheelSpin
+     * @example
+     * // Get one LuckyWheelSpin
+     * const luckyWheelSpin = await prisma.luckyWheelSpin.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LuckyWheelSpinFindUniqueOrThrowArgs>(args: SelectSubset<T, LuckyWheelSpinFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LuckyWheelSpinClient<$Result.GetResult<Prisma.$LuckyWheelSpinPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first LuckyWheelSpin that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelSpinFindFirstArgs} args - Arguments to find a LuckyWheelSpin
+     * @example
+     * // Get one LuckyWheelSpin
+     * const luckyWheelSpin = await prisma.luckyWheelSpin.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LuckyWheelSpinFindFirstArgs>(args?: SelectSubset<T, LuckyWheelSpinFindFirstArgs<ExtArgs>>): Prisma__LuckyWheelSpinClient<$Result.GetResult<Prisma.$LuckyWheelSpinPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first LuckyWheelSpin that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelSpinFindFirstOrThrowArgs} args - Arguments to find a LuckyWheelSpin
+     * @example
+     * // Get one LuckyWheelSpin
+     * const luckyWheelSpin = await prisma.luckyWheelSpin.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LuckyWheelSpinFindFirstOrThrowArgs>(args?: SelectSubset<T, LuckyWheelSpinFindFirstOrThrowArgs<ExtArgs>>): Prisma__LuckyWheelSpinClient<$Result.GetResult<Prisma.$LuckyWheelSpinPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more LuckyWheelSpins that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelSpinFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all LuckyWheelSpins
+     * const luckyWheelSpins = await prisma.luckyWheelSpin.findMany()
+     * 
+     * // Get first 10 LuckyWheelSpins
+     * const luckyWheelSpins = await prisma.luckyWheelSpin.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const luckyWheelSpinWithIdOnly = await prisma.luckyWheelSpin.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LuckyWheelSpinFindManyArgs>(args?: SelectSubset<T, LuckyWheelSpinFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LuckyWheelSpinPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a LuckyWheelSpin.
+     * @param {LuckyWheelSpinCreateArgs} args - Arguments to create a LuckyWheelSpin.
+     * @example
+     * // Create one LuckyWheelSpin
+     * const LuckyWheelSpin = await prisma.luckyWheelSpin.create({
+     *   data: {
+     *     // ... data to create a LuckyWheelSpin
+     *   }
+     * })
+     * 
+     */
+    create<T extends LuckyWheelSpinCreateArgs>(args: SelectSubset<T, LuckyWheelSpinCreateArgs<ExtArgs>>): Prisma__LuckyWheelSpinClient<$Result.GetResult<Prisma.$LuckyWheelSpinPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many LuckyWheelSpins.
+     * @param {LuckyWheelSpinCreateManyArgs} args - Arguments to create many LuckyWheelSpins.
+     * @example
+     * // Create many LuckyWheelSpins
+     * const luckyWheelSpin = await prisma.luckyWheelSpin.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LuckyWheelSpinCreateManyArgs>(args?: SelectSubset<T, LuckyWheelSpinCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many LuckyWheelSpins and returns the data saved in the database.
+     * @param {LuckyWheelSpinCreateManyAndReturnArgs} args - Arguments to create many LuckyWheelSpins.
+     * @example
+     * // Create many LuckyWheelSpins
+     * const luckyWheelSpin = await prisma.luckyWheelSpin.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many LuckyWheelSpins and only return the `id`
+     * const luckyWheelSpinWithIdOnly = await prisma.luckyWheelSpin.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LuckyWheelSpinCreateManyAndReturnArgs>(args?: SelectSubset<T, LuckyWheelSpinCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LuckyWheelSpinPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a LuckyWheelSpin.
+     * @param {LuckyWheelSpinDeleteArgs} args - Arguments to delete one LuckyWheelSpin.
+     * @example
+     * // Delete one LuckyWheelSpin
+     * const LuckyWheelSpin = await prisma.luckyWheelSpin.delete({
+     *   where: {
+     *     // ... filter to delete one LuckyWheelSpin
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LuckyWheelSpinDeleteArgs>(args: SelectSubset<T, LuckyWheelSpinDeleteArgs<ExtArgs>>): Prisma__LuckyWheelSpinClient<$Result.GetResult<Prisma.$LuckyWheelSpinPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one LuckyWheelSpin.
+     * @param {LuckyWheelSpinUpdateArgs} args - Arguments to update one LuckyWheelSpin.
+     * @example
+     * // Update one LuckyWheelSpin
+     * const luckyWheelSpin = await prisma.luckyWheelSpin.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LuckyWheelSpinUpdateArgs>(args: SelectSubset<T, LuckyWheelSpinUpdateArgs<ExtArgs>>): Prisma__LuckyWheelSpinClient<$Result.GetResult<Prisma.$LuckyWheelSpinPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more LuckyWheelSpins.
+     * @param {LuckyWheelSpinDeleteManyArgs} args - Arguments to filter LuckyWheelSpins to delete.
+     * @example
+     * // Delete a few LuckyWheelSpins
+     * const { count } = await prisma.luckyWheelSpin.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LuckyWheelSpinDeleteManyArgs>(args?: SelectSubset<T, LuckyWheelSpinDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more LuckyWheelSpins.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelSpinUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many LuckyWheelSpins
+     * const luckyWheelSpin = await prisma.luckyWheelSpin.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LuckyWheelSpinUpdateManyArgs>(args: SelectSubset<T, LuckyWheelSpinUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one LuckyWheelSpin.
+     * @param {LuckyWheelSpinUpsertArgs} args - Arguments to update or create a LuckyWheelSpin.
+     * @example
+     * // Update or create a LuckyWheelSpin
+     * const luckyWheelSpin = await prisma.luckyWheelSpin.upsert({
+     *   create: {
+     *     // ... data to create a LuckyWheelSpin
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the LuckyWheelSpin we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LuckyWheelSpinUpsertArgs>(args: SelectSubset<T, LuckyWheelSpinUpsertArgs<ExtArgs>>): Prisma__LuckyWheelSpinClient<$Result.GetResult<Prisma.$LuckyWheelSpinPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of LuckyWheelSpins.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelSpinCountArgs} args - Arguments to filter LuckyWheelSpins to count.
+     * @example
+     * // Count the number of LuckyWheelSpins
+     * const count = await prisma.luckyWheelSpin.count({
+     *   where: {
+     *     // ... the filter for the LuckyWheelSpins we want to count
+     *   }
+     * })
+    **/
+    count<T extends LuckyWheelSpinCountArgs>(
+      args?: Subset<T, LuckyWheelSpinCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LuckyWheelSpinCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a LuckyWheelSpin.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelSpinAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LuckyWheelSpinAggregateArgs>(args: Subset<T, LuckyWheelSpinAggregateArgs>): Prisma.PrismaPromise<GetLuckyWheelSpinAggregateType<T>>
+
+    /**
+     * Group by LuckyWheelSpin.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LuckyWheelSpinGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LuckyWheelSpinGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LuckyWheelSpinGroupByArgs['orderBy'] }
+        : { orderBy?: LuckyWheelSpinGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LuckyWheelSpinGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLuckyWheelSpinGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the LuckyWheelSpin model
+   */
+  readonly fields: LuckyWheelSpinFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for LuckyWheelSpin.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LuckyWheelSpinClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the LuckyWheelSpin model
+   */ 
+  interface LuckyWheelSpinFieldRefs {
+    readonly id: FieldRef<"LuckyWheelSpin", 'String'>
+    readonly userId: FieldRef<"LuckyWheelSpin", 'String'>
+    readonly rewardId: FieldRef<"LuckyWheelSpin", 'String'>
+    readonly rewardType: FieldRef<"LuckyWheelSpin", 'String'>
+    readonly rewardValue: FieldRef<"LuckyWheelSpin", 'String'>
+    readonly couponCode: FieldRef<"LuckyWheelSpin", 'String'>
+    readonly createdAt: FieldRef<"LuckyWheelSpin", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * LuckyWheelSpin findUnique
+   */
+  export type LuckyWheelSpinFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelSpin
+     */
+    select?: LuckyWheelSpinSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LuckyWheelSpinInclude<ExtArgs> | null
+    /**
+     * Filter, which LuckyWheelSpin to fetch.
+     */
+    where: LuckyWheelSpinWhereUniqueInput
+  }
+
+  /**
+   * LuckyWheelSpin findUniqueOrThrow
+   */
+  export type LuckyWheelSpinFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelSpin
+     */
+    select?: LuckyWheelSpinSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LuckyWheelSpinInclude<ExtArgs> | null
+    /**
+     * Filter, which LuckyWheelSpin to fetch.
+     */
+    where: LuckyWheelSpinWhereUniqueInput
+  }
+
+  /**
+   * LuckyWheelSpin findFirst
+   */
+  export type LuckyWheelSpinFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelSpin
+     */
+    select?: LuckyWheelSpinSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LuckyWheelSpinInclude<ExtArgs> | null
+    /**
+     * Filter, which LuckyWheelSpin to fetch.
+     */
+    where?: LuckyWheelSpinWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LuckyWheelSpins to fetch.
+     */
+    orderBy?: LuckyWheelSpinOrderByWithRelationInput | LuckyWheelSpinOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LuckyWheelSpins.
+     */
+    cursor?: LuckyWheelSpinWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LuckyWheelSpins from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LuckyWheelSpins.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LuckyWheelSpins.
+     */
+    distinct?: LuckyWheelSpinScalarFieldEnum | LuckyWheelSpinScalarFieldEnum[]
+  }
+
+  /**
+   * LuckyWheelSpin findFirstOrThrow
+   */
+  export type LuckyWheelSpinFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelSpin
+     */
+    select?: LuckyWheelSpinSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LuckyWheelSpinInclude<ExtArgs> | null
+    /**
+     * Filter, which LuckyWheelSpin to fetch.
+     */
+    where?: LuckyWheelSpinWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LuckyWheelSpins to fetch.
+     */
+    orderBy?: LuckyWheelSpinOrderByWithRelationInput | LuckyWheelSpinOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for LuckyWheelSpins.
+     */
+    cursor?: LuckyWheelSpinWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LuckyWheelSpins from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LuckyWheelSpins.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of LuckyWheelSpins.
+     */
+    distinct?: LuckyWheelSpinScalarFieldEnum | LuckyWheelSpinScalarFieldEnum[]
+  }
+
+  /**
+   * LuckyWheelSpin findMany
+   */
+  export type LuckyWheelSpinFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelSpin
+     */
+    select?: LuckyWheelSpinSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LuckyWheelSpinInclude<ExtArgs> | null
+    /**
+     * Filter, which LuckyWheelSpins to fetch.
+     */
+    where?: LuckyWheelSpinWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of LuckyWheelSpins to fetch.
+     */
+    orderBy?: LuckyWheelSpinOrderByWithRelationInput | LuckyWheelSpinOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing LuckyWheelSpins.
+     */
+    cursor?: LuckyWheelSpinWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` LuckyWheelSpins from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` LuckyWheelSpins.
+     */
+    skip?: number
+    distinct?: LuckyWheelSpinScalarFieldEnum | LuckyWheelSpinScalarFieldEnum[]
+  }
+
+  /**
+   * LuckyWheelSpin create
+   */
+  export type LuckyWheelSpinCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelSpin
+     */
+    select?: LuckyWheelSpinSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LuckyWheelSpinInclude<ExtArgs> | null
+    /**
+     * The data needed to create a LuckyWheelSpin.
+     */
+    data: XOR<LuckyWheelSpinCreateInput, LuckyWheelSpinUncheckedCreateInput>
+  }
+
+  /**
+   * LuckyWheelSpin createMany
+   */
+  export type LuckyWheelSpinCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many LuckyWheelSpins.
+     */
+    data: LuckyWheelSpinCreateManyInput | LuckyWheelSpinCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * LuckyWheelSpin createManyAndReturn
+   */
+  export type LuckyWheelSpinCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelSpin
+     */
+    select?: LuckyWheelSpinSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many LuckyWheelSpins.
+     */
+    data: LuckyWheelSpinCreateManyInput | LuckyWheelSpinCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LuckyWheelSpinIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * LuckyWheelSpin update
+   */
+  export type LuckyWheelSpinUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelSpin
+     */
+    select?: LuckyWheelSpinSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LuckyWheelSpinInclude<ExtArgs> | null
+    /**
+     * The data needed to update a LuckyWheelSpin.
+     */
+    data: XOR<LuckyWheelSpinUpdateInput, LuckyWheelSpinUncheckedUpdateInput>
+    /**
+     * Choose, which LuckyWheelSpin to update.
+     */
+    where: LuckyWheelSpinWhereUniqueInput
+  }
+
+  /**
+   * LuckyWheelSpin updateMany
+   */
+  export type LuckyWheelSpinUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update LuckyWheelSpins.
+     */
+    data: XOR<LuckyWheelSpinUpdateManyMutationInput, LuckyWheelSpinUncheckedUpdateManyInput>
+    /**
+     * Filter which LuckyWheelSpins to update
+     */
+    where?: LuckyWheelSpinWhereInput
+  }
+
+  /**
+   * LuckyWheelSpin upsert
+   */
+  export type LuckyWheelSpinUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelSpin
+     */
+    select?: LuckyWheelSpinSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LuckyWheelSpinInclude<ExtArgs> | null
+    /**
+     * The filter to search for the LuckyWheelSpin to update in case it exists.
+     */
+    where: LuckyWheelSpinWhereUniqueInput
+    /**
+     * In case the LuckyWheelSpin found by the `where` argument doesn't exist, create a new LuckyWheelSpin with this data.
+     */
+    create: XOR<LuckyWheelSpinCreateInput, LuckyWheelSpinUncheckedCreateInput>
+    /**
+     * In case the LuckyWheelSpin was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LuckyWheelSpinUpdateInput, LuckyWheelSpinUncheckedUpdateInput>
+  }
+
+  /**
+   * LuckyWheelSpin delete
+   */
+  export type LuckyWheelSpinDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelSpin
+     */
+    select?: LuckyWheelSpinSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LuckyWheelSpinInclude<ExtArgs> | null
+    /**
+     * Filter which LuckyWheelSpin to delete.
+     */
+    where: LuckyWheelSpinWhereUniqueInput
+  }
+
+  /**
+   * LuckyWheelSpin deleteMany
+   */
+  export type LuckyWheelSpinDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which LuckyWheelSpins to delete
+     */
+    where?: LuckyWheelSpinWhereInput
+  }
+
+  /**
+   * LuckyWheelSpin without action
+   */
+  export type LuckyWheelSpinDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the LuckyWheelSpin
+     */
+    select?: LuckyWheelSpinSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LuckyWheelSpinInclude<ExtArgs> | null
   }
 
 
@@ -18304,11 +20449,39 @@ export namespace Prisma {
     code: 'code',
     discountPct: 'discountPct',
     isUsed: 'isUsed',
+    usageLimit: 'usageLimit',
+    usedCount: 'usedCount',
     expiresAt: 'expiresAt',
     createdAt: 'createdAt'
   };
 
   export type CouponScalarFieldEnum = (typeof CouponScalarFieldEnum)[keyof typeof CouponScalarFieldEnum]
+
+
+  export const LuckyWheelRewardScalarFieldEnum: {
+    id: 'id',
+    type: 'type',
+    value: 'value',
+    probability: 'probability',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type LuckyWheelRewardScalarFieldEnum = (typeof LuckyWheelRewardScalarFieldEnum)[keyof typeof LuckyWheelRewardScalarFieldEnum]
+
+
+  export const LuckyWheelSpinScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    rewardId: 'rewardId',
+    rewardType: 'rewardType',
+    rewardValue: 'rewardValue',
+    couponCode: 'couponCode',
+    createdAt: 'createdAt'
+  };
+
+  export type LuckyWheelSpinScalarFieldEnum = (typeof LuckyWheelSpinScalarFieldEnum)[keyof typeof LuckyWheelSpinScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -18558,6 +20731,7 @@ export namespace Prisma {
     packages?: PackageListRelationFilter
     coupons?: CouponListRelationFilter
     reviews?: ReviewListRelationFilter
+    luckyWheelSpins?: LuckyWheelSpinListRelationFilter
     referralsMade?: ReferralListRelationFilter
     referralReceived?: XOR<ReferralNullableRelationFilter, ReferralWhereInput> | null
   }
@@ -18585,6 +20759,7 @@ export namespace Prisma {
     packages?: PackageOrderByRelationAggregateInput
     coupons?: CouponOrderByRelationAggregateInput
     reviews?: ReviewOrderByRelationAggregateInput
+    luckyWheelSpins?: LuckyWheelSpinOrderByRelationAggregateInput
     referralsMade?: ReferralOrderByRelationAggregateInput
     referralReceived?: ReferralOrderByWithRelationInput
   }
@@ -18615,6 +20790,7 @@ export namespace Prisma {
     packages?: PackageListRelationFilter
     coupons?: CouponListRelationFilter
     reviews?: ReviewListRelationFilter
+    luckyWheelSpins?: LuckyWheelSpinListRelationFilter
     referralsMade?: ReferralListRelationFilter
     referralReceived?: XOR<ReferralNullableRelationFilter, ReferralWhereInput> | null
   }, "id" | "email" | "referralCode">
@@ -19687,21 +21863,25 @@ export namespace Prisma {
     OR?: CouponWhereInput[]
     NOT?: CouponWhereInput | CouponWhereInput[]
     id?: StringFilter<"Coupon"> | string
-    userId?: StringFilter<"Coupon"> | string
+    userId?: StringNullableFilter<"Coupon"> | string | null
     code?: StringFilter<"Coupon"> | string
     discountPct?: IntFilter<"Coupon"> | number
     isUsed?: BoolFilter<"Coupon"> | boolean
+    usageLimit?: IntFilter<"Coupon"> | number
+    usedCount?: IntFilter<"Coupon"> | number
     expiresAt?: DateTimeFilter<"Coupon"> | Date | string
     createdAt?: DateTimeFilter<"Coupon"> | Date | string
-    user?: XOR<UserRelationFilter, UserWhereInput>
+    user?: XOR<UserNullableRelationFilter, UserWhereInput> | null
   }
 
   export type CouponOrderByWithRelationInput = {
     id?: SortOrder
-    userId?: SortOrder
+    userId?: SortOrderInput | SortOrder
     code?: SortOrder
     discountPct?: SortOrder
     isUsed?: SortOrder
+    usageLimit?: SortOrder
+    usedCount?: SortOrder
     expiresAt?: SortOrder
     createdAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -19713,20 +21893,24 @@ export namespace Prisma {
     AND?: CouponWhereInput | CouponWhereInput[]
     OR?: CouponWhereInput[]
     NOT?: CouponWhereInput | CouponWhereInput[]
-    userId?: StringFilter<"Coupon"> | string
+    userId?: StringNullableFilter<"Coupon"> | string | null
     discountPct?: IntFilter<"Coupon"> | number
     isUsed?: BoolFilter<"Coupon"> | boolean
+    usageLimit?: IntFilter<"Coupon"> | number
+    usedCount?: IntFilter<"Coupon"> | number
     expiresAt?: DateTimeFilter<"Coupon"> | Date | string
     createdAt?: DateTimeFilter<"Coupon"> | Date | string
-    user?: XOR<UserRelationFilter, UserWhereInput>
+    user?: XOR<UserNullableRelationFilter, UserWhereInput> | null
   }, "id" | "code">
 
   export type CouponOrderByWithAggregationInput = {
     id?: SortOrder
-    userId?: SortOrder
+    userId?: SortOrderInput | SortOrder
     code?: SortOrder
     discountPct?: SortOrder
     isUsed?: SortOrder
+    usageLimit?: SortOrder
+    usedCount?: SortOrder
     expiresAt?: SortOrder
     createdAt?: SortOrder
     _count?: CouponCountOrderByAggregateInput
@@ -19741,12 +21925,143 @@ export namespace Prisma {
     OR?: CouponScalarWhereWithAggregatesInput[]
     NOT?: CouponScalarWhereWithAggregatesInput | CouponScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Coupon"> | string
-    userId?: StringWithAggregatesFilter<"Coupon"> | string
+    userId?: StringNullableWithAggregatesFilter<"Coupon"> | string | null
     code?: StringWithAggregatesFilter<"Coupon"> | string
     discountPct?: IntWithAggregatesFilter<"Coupon"> | number
     isUsed?: BoolWithAggregatesFilter<"Coupon"> | boolean
+    usageLimit?: IntWithAggregatesFilter<"Coupon"> | number
+    usedCount?: IntWithAggregatesFilter<"Coupon"> | number
     expiresAt?: DateTimeWithAggregatesFilter<"Coupon"> | Date | string
     createdAt?: DateTimeWithAggregatesFilter<"Coupon"> | Date | string
+  }
+
+  export type LuckyWheelRewardWhereInput = {
+    AND?: LuckyWheelRewardWhereInput | LuckyWheelRewardWhereInput[]
+    OR?: LuckyWheelRewardWhereInput[]
+    NOT?: LuckyWheelRewardWhereInput | LuckyWheelRewardWhereInput[]
+    id?: StringFilter<"LuckyWheelReward"> | string
+    type?: StringFilter<"LuckyWheelReward"> | string
+    value?: StringFilter<"LuckyWheelReward"> | string
+    probability?: FloatFilter<"LuckyWheelReward"> | number
+    isActive?: BoolFilter<"LuckyWheelReward"> | boolean
+    createdAt?: DateTimeFilter<"LuckyWheelReward"> | Date | string
+    updatedAt?: DateTimeFilter<"LuckyWheelReward"> | Date | string
+  }
+
+  export type LuckyWheelRewardOrderByWithRelationInput = {
+    id?: SortOrder
+    type?: SortOrder
+    value?: SortOrder
+    probability?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LuckyWheelRewardWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LuckyWheelRewardWhereInput | LuckyWheelRewardWhereInput[]
+    OR?: LuckyWheelRewardWhereInput[]
+    NOT?: LuckyWheelRewardWhereInput | LuckyWheelRewardWhereInput[]
+    type?: StringFilter<"LuckyWheelReward"> | string
+    value?: StringFilter<"LuckyWheelReward"> | string
+    probability?: FloatFilter<"LuckyWheelReward"> | number
+    isActive?: BoolFilter<"LuckyWheelReward"> | boolean
+    createdAt?: DateTimeFilter<"LuckyWheelReward"> | Date | string
+    updatedAt?: DateTimeFilter<"LuckyWheelReward"> | Date | string
+  }, "id">
+
+  export type LuckyWheelRewardOrderByWithAggregationInput = {
+    id?: SortOrder
+    type?: SortOrder
+    value?: SortOrder
+    probability?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: LuckyWheelRewardCountOrderByAggregateInput
+    _avg?: LuckyWheelRewardAvgOrderByAggregateInput
+    _max?: LuckyWheelRewardMaxOrderByAggregateInput
+    _min?: LuckyWheelRewardMinOrderByAggregateInput
+    _sum?: LuckyWheelRewardSumOrderByAggregateInput
+  }
+
+  export type LuckyWheelRewardScalarWhereWithAggregatesInput = {
+    AND?: LuckyWheelRewardScalarWhereWithAggregatesInput | LuckyWheelRewardScalarWhereWithAggregatesInput[]
+    OR?: LuckyWheelRewardScalarWhereWithAggregatesInput[]
+    NOT?: LuckyWheelRewardScalarWhereWithAggregatesInput | LuckyWheelRewardScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"LuckyWheelReward"> | string
+    type?: StringWithAggregatesFilter<"LuckyWheelReward"> | string
+    value?: StringWithAggregatesFilter<"LuckyWheelReward"> | string
+    probability?: FloatWithAggregatesFilter<"LuckyWheelReward"> | number
+    isActive?: BoolWithAggregatesFilter<"LuckyWheelReward"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"LuckyWheelReward"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"LuckyWheelReward"> | Date | string
+  }
+
+  export type LuckyWheelSpinWhereInput = {
+    AND?: LuckyWheelSpinWhereInput | LuckyWheelSpinWhereInput[]
+    OR?: LuckyWheelSpinWhereInput[]
+    NOT?: LuckyWheelSpinWhereInput | LuckyWheelSpinWhereInput[]
+    id?: StringFilter<"LuckyWheelSpin"> | string
+    userId?: StringFilter<"LuckyWheelSpin"> | string
+    rewardId?: StringNullableFilter<"LuckyWheelSpin"> | string | null
+    rewardType?: StringFilter<"LuckyWheelSpin"> | string
+    rewardValue?: StringFilter<"LuckyWheelSpin"> | string
+    couponCode?: StringNullableFilter<"LuckyWheelSpin"> | string | null
+    createdAt?: DateTimeFilter<"LuckyWheelSpin"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+  }
+
+  export type LuckyWheelSpinOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    rewardId?: SortOrderInput | SortOrder
+    rewardType?: SortOrder
+    rewardValue?: SortOrder
+    couponCode?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type LuckyWheelSpinWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LuckyWheelSpinWhereInput | LuckyWheelSpinWhereInput[]
+    OR?: LuckyWheelSpinWhereInput[]
+    NOT?: LuckyWheelSpinWhereInput | LuckyWheelSpinWhereInput[]
+    userId?: StringFilter<"LuckyWheelSpin"> | string
+    rewardId?: StringNullableFilter<"LuckyWheelSpin"> | string | null
+    rewardType?: StringFilter<"LuckyWheelSpin"> | string
+    rewardValue?: StringFilter<"LuckyWheelSpin"> | string
+    couponCode?: StringNullableFilter<"LuckyWheelSpin"> | string | null
+    createdAt?: DateTimeFilter<"LuckyWheelSpin"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type LuckyWheelSpinOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    rewardId?: SortOrderInput | SortOrder
+    rewardType?: SortOrder
+    rewardValue?: SortOrder
+    couponCode?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: LuckyWheelSpinCountOrderByAggregateInput
+    _max?: LuckyWheelSpinMaxOrderByAggregateInput
+    _min?: LuckyWheelSpinMinOrderByAggregateInput
+  }
+
+  export type LuckyWheelSpinScalarWhereWithAggregatesInput = {
+    AND?: LuckyWheelSpinScalarWhereWithAggregatesInput | LuckyWheelSpinScalarWhereWithAggregatesInput[]
+    OR?: LuckyWheelSpinScalarWhereWithAggregatesInput[]
+    NOT?: LuckyWheelSpinScalarWhereWithAggregatesInput | LuckyWheelSpinScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"LuckyWheelSpin"> | string
+    userId?: StringWithAggregatesFilter<"LuckyWheelSpin"> | string
+    rewardId?: StringNullableWithAggregatesFilter<"LuckyWheelSpin"> | string | null
+    rewardType?: StringWithAggregatesFilter<"LuckyWheelSpin"> | string
+    rewardValue?: StringWithAggregatesFilter<"LuckyWheelSpin"> | string
+    couponCode?: StringNullableWithAggregatesFilter<"LuckyWheelSpin"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"LuckyWheelSpin"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -19772,6 +22087,7 @@ export namespace Prisma {
     packages?: PackageCreateNestedManyWithoutUserInput
     coupons?: CouponCreateNestedManyWithoutUserInput
     reviews?: ReviewCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinCreateNestedManyWithoutUserInput
     referralsMade?: ReferralCreateNestedManyWithoutReferrerInput
     referralReceived?: ReferralCreateNestedOneWithoutReferredInput
   }
@@ -19799,6 +22115,7 @@ export namespace Prisma {
     packages?: PackageUncheckedCreateNestedManyWithoutUserInput
     coupons?: CouponUncheckedCreateNestedManyWithoutUserInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedCreateNestedManyWithoutUserInput
     referralsMade?: ReferralUncheckedCreateNestedManyWithoutReferrerInput
     referralReceived?: ReferralUncheckedCreateNestedOneWithoutReferredInput
   }
@@ -19826,6 +22143,7 @@ export namespace Prisma {
     packages?: PackageUpdateManyWithoutUserNestedInput
     coupons?: CouponUpdateManyWithoutUserNestedInput
     reviews?: ReviewUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUpdateManyWithoutReferrerNestedInput
     referralReceived?: ReferralUpdateOneWithoutReferredNestedInput
   }
@@ -19853,6 +22171,7 @@ export namespace Prisma {
     packages?: PackageUncheckedUpdateManyWithoutUserNestedInput
     coupons?: CouponUncheckedUpdateManyWithoutUserNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUncheckedUpdateManyWithoutReferrerNestedInput
     referralReceived?: ReferralUncheckedUpdateOneWithoutReferredNestedInput
   }
@@ -21010,17 +23329,21 @@ export namespace Prisma {
     code: string
     discountPct: number
     isUsed?: boolean
+    usageLimit?: number
+    usedCount?: number
     expiresAt: Date | string
     createdAt?: Date | string
-    user: UserCreateNestedOneWithoutCouponsInput
+    user?: UserCreateNestedOneWithoutCouponsInput
   }
 
   export type CouponUncheckedCreateInput = {
     id?: string
-    userId: string
+    userId?: string | null
     code: string
     discountPct: number
     isUsed?: boolean
+    usageLimit?: number
+    usedCount?: number
     expiresAt: Date | string
     createdAt?: Date | string
   }
@@ -21030,27 +23353,33 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     discountPct?: IntFieldUpdateOperationsInput | number
     isUsed?: BoolFieldUpdateOperationsInput | boolean
+    usageLimit?: IntFieldUpdateOperationsInput | number
+    usedCount?: IntFieldUpdateOperationsInput | number
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutCouponsNestedInput
+    user?: UserUpdateOneWithoutCouponsNestedInput
   }
 
   export type CouponUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
     code?: StringFieldUpdateOperationsInput | string
     discountPct?: IntFieldUpdateOperationsInput | number
     isUsed?: BoolFieldUpdateOperationsInput | boolean
+    usageLimit?: IntFieldUpdateOperationsInput | number
+    usedCount?: IntFieldUpdateOperationsInput | number
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CouponCreateManyInput = {
     id?: string
-    userId: string
+    userId?: string | null
     code: string
     discountPct: number
     isUsed?: boolean
+    usageLimit?: number
+    usedCount?: number
     expiresAt: Date | string
     createdAt?: Date | string
   }
@@ -21060,17 +23389,160 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     discountPct?: IntFieldUpdateOperationsInput | number
     isUsed?: BoolFieldUpdateOperationsInput | boolean
+    usageLimit?: IntFieldUpdateOperationsInput | number
+    usedCount?: IntFieldUpdateOperationsInput | number
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CouponUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
     code?: StringFieldUpdateOperationsInput | string
     discountPct?: IntFieldUpdateOperationsInput | number
     isUsed?: BoolFieldUpdateOperationsInput | boolean
+    usageLimit?: IntFieldUpdateOperationsInput | number
+    usedCount?: IntFieldUpdateOperationsInput | number
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LuckyWheelRewardCreateInput = {
+    id?: string
+    type: string
+    value: string
+    probability: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LuckyWheelRewardUncheckedCreateInput = {
+    id?: string
+    type: string
+    value: string
+    probability: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LuckyWheelRewardUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    probability?: FloatFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LuckyWheelRewardUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    probability?: FloatFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LuckyWheelRewardCreateManyInput = {
+    id?: string
+    type: string
+    value: string
+    probability: number
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LuckyWheelRewardUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    probability?: FloatFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LuckyWheelRewardUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    value?: StringFieldUpdateOperationsInput | string
+    probability?: FloatFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LuckyWheelSpinCreateInput = {
+    id?: string
+    rewardId?: string | null
+    rewardType: string
+    rewardValue: string
+    couponCode?: string | null
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutLuckyWheelSpinsInput
+  }
+
+  export type LuckyWheelSpinUncheckedCreateInput = {
+    id?: string
+    userId: string
+    rewardId?: string | null
+    rewardType: string
+    rewardValue: string
+    couponCode?: string | null
+    createdAt?: Date | string
+  }
+
+  export type LuckyWheelSpinUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    rewardId?: NullableStringFieldUpdateOperationsInput | string | null
+    rewardType?: StringFieldUpdateOperationsInput | string
+    rewardValue?: StringFieldUpdateOperationsInput | string
+    couponCode?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutLuckyWheelSpinsNestedInput
+  }
+
+  export type LuckyWheelSpinUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    rewardId?: NullableStringFieldUpdateOperationsInput | string | null
+    rewardType?: StringFieldUpdateOperationsInput | string
+    rewardValue?: StringFieldUpdateOperationsInput | string
+    couponCode?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LuckyWheelSpinCreateManyInput = {
+    id?: string
+    userId: string
+    rewardId?: string | null
+    rewardType: string
+    rewardValue: string
+    couponCode?: string | null
+    createdAt?: Date | string
+  }
+
+  export type LuckyWheelSpinUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    rewardId?: NullableStringFieldUpdateOperationsInput | string | null
+    rewardType?: StringFieldUpdateOperationsInput | string
+    rewardValue?: StringFieldUpdateOperationsInput | string
+    couponCode?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LuckyWheelSpinUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    rewardId?: NullableStringFieldUpdateOperationsInput | string | null
+    rewardType?: StringFieldUpdateOperationsInput | string
+    rewardValue?: StringFieldUpdateOperationsInput | string
+    couponCode?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -21168,6 +23640,12 @@ export namespace Prisma {
     none?: ReviewWhereInput
   }
 
+  export type LuckyWheelSpinListRelationFilter = {
+    every?: LuckyWheelSpinWhereInput
+    some?: LuckyWheelSpinWhereInput
+    none?: LuckyWheelSpinWhereInput
+  }
+
   export type ReferralListRelationFilter = {
     every?: ReferralWhereInput
     some?: ReferralWhereInput
@@ -21201,6 +23679,10 @@ export namespace Prisma {
   }
 
   export type ReviewOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LuckyWheelSpinOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -22211,12 +24693,16 @@ export namespace Prisma {
     code?: SortOrder
     discountPct?: SortOrder
     isUsed?: SortOrder
+    usageLimit?: SortOrder
+    usedCount?: SortOrder
     expiresAt?: SortOrder
     createdAt?: SortOrder
   }
 
   export type CouponAvgOrderByAggregateInput = {
     discountPct?: SortOrder
+    usageLimit?: SortOrder
+    usedCount?: SortOrder
   }
 
   export type CouponMaxOrderByAggregateInput = {
@@ -22225,6 +24711,8 @@ export namespace Prisma {
     code?: SortOrder
     discountPct?: SortOrder
     isUsed?: SortOrder
+    usageLimit?: SortOrder
+    usedCount?: SortOrder
     expiresAt?: SortOrder
     createdAt?: SortOrder
   }
@@ -22235,12 +24723,111 @@ export namespace Prisma {
     code?: SortOrder
     discountPct?: SortOrder
     isUsed?: SortOrder
+    usageLimit?: SortOrder
+    usedCount?: SortOrder
     expiresAt?: SortOrder
     createdAt?: SortOrder
   }
 
   export type CouponSumOrderByAggregateInput = {
     discountPct?: SortOrder
+    usageLimit?: SortOrder
+    usedCount?: SortOrder
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type LuckyWheelRewardCountOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    value?: SortOrder
+    probability?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LuckyWheelRewardAvgOrderByAggregateInput = {
+    probability?: SortOrder
+  }
+
+  export type LuckyWheelRewardMaxOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    value?: SortOrder
+    probability?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LuckyWheelRewardMinOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    value?: SortOrder
+    probability?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LuckyWheelRewardSumOrderByAggregateInput = {
+    probability?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type LuckyWheelSpinCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    rewardId?: SortOrder
+    rewardType?: SortOrder
+    rewardValue?: SortOrder
+    couponCode?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type LuckyWheelSpinMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    rewardId?: SortOrder
+    rewardType?: SortOrder
+    rewardValue?: SortOrder
+    couponCode?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type LuckyWheelSpinMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    rewardId?: SortOrder
+    rewardType?: SortOrder
+    rewardValue?: SortOrder
+    couponCode?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type OrderCreateNestedManyWithoutUserInput = {
@@ -22276,6 +24863,13 @@ export namespace Prisma {
     connectOrCreate?: ReviewCreateOrConnectWithoutUserInput | ReviewCreateOrConnectWithoutUserInput[]
     createMany?: ReviewCreateManyUserInputEnvelope
     connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+  }
+
+  export type LuckyWheelSpinCreateNestedManyWithoutUserInput = {
+    create?: XOR<LuckyWheelSpinCreateWithoutUserInput, LuckyWheelSpinUncheckedCreateWithoutUserInput> | LuckyWheelSpinCreateWithoutUserInput[] | LuckyWheelSpinUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LuckyWheelSpinCreateOrConnectWithoutUserInput | LuckyWheelSpinCreateOrConnectWithoutUserInput[]
+    createMany?: LuckyWheelSpinCreateManyUserInputEnvelope
+    connect?: LuckyWheelSpinWhereUniqueInput | LuckyWheelSpinWhereUniqueInput[]
   }
 
   export type ReferralCreateNestedManyWithoutReferrerInput = {
@@ -22324,6 +24918,13 @@ export namespace Prisma {
     connectOrCreate?: ReviewCreateOrConnectWithoutUserInput | ReviewCreateOrConnectWithoutUserInput[]
     createMany?: ReviewCreateManyUserInputEnvelope
     connect?: ReviewWhereUniqueInput | ReviewWhereUniqueInput[]
+  }
+
+  export type LuckyWheelSpinUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<LuckyWheelSpinCreateWithoutUserInput, LuckyWheelSpinUncheckedCreateWithoutUserInput> | LuckyWheelSpinCreateWithoutUserInput[] | LuckyWheelSpinUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LuckyWheelSpinCreateOrConnectWithoutUserInput | LuckyWheelSpinCreateOrConnectWithoutUserInput[]
+    createMany?: LuckyWheelSpinCreateManyUserInputEnvelope
+    connect?: LuckyWheelSpinWhereUniqueInput | LuckyWheelSpinWhereUniqueInput[]
   }
 
   export type ReferralUncheckedCreateNestedManyWithoutReferrerInput = {
@@ -22437,6 +25038,20 @@ export namespace Prisma {
     deleteMany?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
   }
 
+  export type LuckyWheelSpinUpdateManyWithoutUserNestedInput = {
+    create?: XOR<LuckyWheelSpinCreateWithoutUserInput, LuckyWheelSpinUncheckedCreateWithoutUserInput> | LuckyWheelSpinCreateWithoutUserInput[] | LuckyWheelSpinUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LuckyWheelSpinCreateOrConnectWithoutUserInput | LuckyWheelSpinCreateOrConnectWithoutUserInput[]
+    upsert?: LuckyWheelSpinUpsertWithWhereUniqueWithoutUserInput | LuckyWheelSpinUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: LuckyWheelSpinCreateManyUserInputEnvelope
+    set?: LuckyWheelSpinWhereUniqueInput | LuckyWheelSpinWhereUniqueInput[]
+    disconnect?: LuckyWheelSpinWhereUniqueInput | LuckyWheelSpinWhereUniqueInput[]
+    delete?: LuckyWheelSpinWhereUniqueInput | LuckyWheelSpinWhereUniqueInput[]
+    connect?: LuckyWheelSpinWhereUniqueInput | LuckyWheelSpinWhereUniqueInput[]
+    update?: LuckyWheelSpinUpdateWithWhereUniqueWithoutUserInput | LuckyWheelSpinUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: LuckyWheelSpinUpdateManyWithWhereWithoutUserInput | LuckyWheelSpinUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: LuckyWheelSpinScalarWhereInput | LuckyWheelSpinScalarWhereInput[]
+  }
+
   export type ReferralUpdateManyWithoutReferrerNestedInput = {
     create?: XOR<ReferralCreateWithoutReferrerInput, ReferralUncheckedCreateWithoutReferrerInput> | ReferralCreateWithoutReferrerInput[] | ReferralUncheckedCreateWithoutReferrerInput[]
     connectOrCreate?: ReferralCreateOrConnectWithoutReferrerInput | ReferralCreateOrConnectWithoutReferrerInput[]
@@ -22529,6 +25144,20 @@ export namespace Prisma {
     update?: ReviewUpdateWithWhereUniqueWithoutUserInput | ReviewUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: ReviewUpdateManyWithWhereWithoutUserInput | ReviewUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
+  }
+
+  export type LuckyWheelSpinUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<LuckyWheelSpinCreateWithoutUserInput, LuckyWheelSpinUncheckedCreateWithoutUserInput> | LuckyWheelSpinCreateWithoutUserInput[] | LuckyWheelSpinUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LuckyWheelSpinCreateOrConnectWithoutUserInput | LuckyWheelSpinCreateOrConnectWithoutUserInput[]
+    upsert?: LuckyWheelSpinUpsertWithWhereUniqueWithoutUserInput | LuckyWheelSpinUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: LuckyWheelSpinCreateManyUserInputEnvelope
+    set?: LuckyWheelSpinWhereUniqueInput | LuckyWheelSpinWhereUniqueInput[]
+    disconnect?: LuckyWheelSpinWhereUniqueInput | LuckyWheelSpinWhereUniqueInput[]
+    delete?: LuckyWheelSpinWhereUniqueInput | LuckyWheelSpinWhereUniqueInput[]
+    connect?: LuckyWheelSpinWhereUniqueInput | LuckyWheelSpinWhereUniqueInput[]
+    update?: LuckyWheelSpinUpdateWithWhereUniqueWithoutUserInput | LuckyWheelSpinUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: LuckyWheelSpinUpdateManyWithWhereWithoutUserInput | LuckyWheelSpinUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: LuckyWheelSpinScalarWhereInput | LuckyWheelSpinScalarWhereInput[]
   }
 
   export type ReferralUncheckedUpdateManyWithoutReferrerNestedInput = {
@@ -23382,12 +26011,36 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutCouponsNestedInput = {
+  export type UserUpdateOneWithoutCouponsNestedInput = {
     create?: XOR<UserCreateWithoutCouponsInput, UserUncheckedCreateWithoutCouponsInput>
     connectOrCreate?: UserCreateOrConnectWithoutCouponsInput
     upsert?: UserUpsertWithoutCouponsInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCouponsInput, UserUpdateWithoutCouponsInput>, UserUncheckedUpdateWithoutCouponsInput>
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type UserCreateNestedOneWithoutLuckyWheelSpinsInput = {
+    create?: XOR<UserCreateWithoutLuckyWheelSpinsInput, UserUncheckedCreateWithoutLuckyWheelSpinsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLuckyWheelSpinsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutLuckyWheelSpinsNestedInput = {
+    create?: XOR<UserCreateWithoutLuckyWheelSpinsInput, UserUncheckedCreateWithoutLuckyWheelSpinsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLuckyWheelSpinsInput
+    upsert?: UserUpsertWithoutLuckyWheelSpinsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLuckyWheelSpinsInput, UserUpdateWithoutLuckyWheelSpinsInput>, UserUncheckedUpdateWithoutLuckyWheelSpinsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -23754,6 +26407,22 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
   export type OrderCreateWithoutUserInput = {
     id?: string
     status?: $Enums.OrderStatus
@@ -23883,6 +26552,8 @@ export namespace Prisma {
     code: string
     discountPct: number
     isUsed?: boolean
+    usageLimit?: number
+    usedCount?: number
     expiresAt: Date | string
     createdAt?: Date | string
   }
@@ -23892,6 +26563,8 @@ export namespace Prisma {
     code: string
     discountPct: number
     isUsed?: boolean
+    usageLimit?: number
+    usedCount?: number
     expiresAt: Date | string
     createdAt?: Date | string
   }
@@ -23933,6 +26606,34 @@ export namespace Prisma {
 
   export type ReviewCreateManyUserInputEnvelope = {
     data: ReviewCreateManyUserInput | ReviewCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type LuckyWheelSpinCreateWithoutUserInput = {
+    id?: string
+    rewardId?: string | null
+    rewardType: string
+    rewardValue: string
+    couponCode?: string | null
+    createdAt?: Date | string
+  }
+
+  export type LuckyWheelSpinUncheckedCreateWithoutUserInput = {
+    id?: string
+    rewardId?: string | null
+    rewardType: string
+    rewardValue: string
+    couponCode?: string | null
+    createdAt?: Date | string
+  }
+
+  export type LuckyWheelSpinCreateOrConnectWithoutUserInput = {
+    where: LuckyWheelSpinWhereUniqueInput
+    create: XOR<LuckyWheelSpinCreateWithoutUserInput, LuckyWheelSpinUncheckedCreateWithoutUserInput>
+  }
+
+  export type LuckyWheelSpinCreateManyUserInputEnvelope = {
+    data: LuckyWheelSpinCreateManyUserInput | LuckyWheelSpinCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -24108,10 +26809,12 @@ export namespace Prisma {
     OR?: CouponScalarWhereInput[]
     NOT?: CouponScalarWhereInput | CouponScalarWhereInput[]
     id?: StringFilter<"Coupon"> | string
-    userId?: StringFilter<"Coupon"> | string
+    userId?: StringNullableFilter<"Coupon"> | string | null
     code?: StringFilter<"Coupon"> | string
     discountPct?: IntFilter<"Coupon"> | number
     isUsed?: BoolFilter<"Coupon"> | boolean
+    usageLimit?: IntFilter<"Coupon"> | number
+    usedCount?: IntFilter<"Coupon"> | number
     expiresAt?: DateTimeFilter<"Coupon"> | Date | string
     createdAt?: DateTimeFilter<"Coupon"> | Date | string
   }
@@ -24144,6 +26847,35 @@ export namespace Prisma {
     isVerified?: BoolFilter<"Review"> | boolean
     createdAt?: DateTimeFilter<"Review"> | Date | string
     updatedAt?: DateTimeFilter<"Review"> | Date | string
+  }
+
+  export type LuckyWheelSpinUpsertWithWhereUniqueWithoutUserInput = {
+    where: LuckyWheelSpinWhereUniqueInput
+    update: XOR<LuckyWheelSpinUpdateWithoutUserInput, LuckyWheelSpinUncheckedUpdateWithoutUserInput>
+    create: XOR<LuckyWheelSpinCreateWithoutUserInput, LuckyWheelSpinUncheckedCreateWithoutUserInput>
+  }
+
+  export type LuckyWheelSpinUpdateWithWhereUniqueWithoutUserInput = {
+    where: LuckyWheelSpinWhereUniqueInput
+    data: XOR<LuckyWheelSpinUpdateWithoutUserInput, LuckyWheelSpinUncheckedUpdateWithoutUserInput>
+  }
+
+  export type LuckyWheelSpinUpdateManyWithWhereWithoutUserInput = {
+    where: LuckyWheelSpinScalarWhereInput
+    data: XOR<LuckyWheelSpinUpdateManyMutationInput, LuckyWheelSpinUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type LuckyWheelSpinScalarWhereInput = {
+    AND?: LuckyWheelSpinScalarWhereInput | LuckyWheelSpinScalarWhereInput[]
+    OR?: LuckyWheelSpinScalarWhereInput[]
+    NOT?: LuckyWheelSpinScalarWhereInput | LuckyWheelSpinScalarWhereInput[]
+    id?: StringFilter<"LuckyWheelSpin"> | string
+    userId?: StringFilter<"LuckyWheelSpin"> | string
+    rewardId?: StringNullableFilter<"LuckyWheelSpin"> | string | null
+    rewardType?: StringFilter<"LuckyWheelSpin"> | string
+    rewardValue?: StringFilter<"LuckyWheelSpin"> | string
+    couponCode?: StringNullableFilter<"LuckyWheelSpin"> | string | null
+    createdAt?: DateTimeFilter<"LuckyWheelSpin"> | Date | string
   }
 
   export type ReferralUpsertWithWhereUniqueWithoutReferrerInput = {
@@ -24223,6 +26955,7 @@ export namespace Prisma {
     packages?: PackageCreateNestedManyWithoutUserInput
     coupons?: CouponCreateNestedManyWithoutUserInput
     reviews?: ReviewCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinCreateNestedManyWithoutUserInput
     referralsMade?: ReferralCreateNestedManyWithoutReferrerInput
     referralReceived?: ReferralCreateNestedOneWithoutReferredInput
   }
@@ -24249,6 +26982,7 @@ export namespace Prisma {
     packages?: PackageUncheckedCreateNestedManyWithoutUserInput
     coupons?: CouponUncheckedCreateNestedManyWithoutUserInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedCreateNestedManyWithoutUserInput
     referralsMade?: ReferralUncheckedCreateNestedManyWithoutReferrerInput
     referralReceived?: ReferralUncheckedCreateNestedOneWithoutReferredInput
   }
@@ -24341,6 +27075,7 @@ export namespace Prisma {
     packages?: PackageUpdateManyWithoutUserNestedInput
     coupons?: CouponUpdateManyWithoutUserNestedInput
     reviews?: ReviewUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUpdateManyWithoutReferrerNestedInput
     referralReceived?: ReferralUpdateOneWithoutReferredNestedInput
   }
@@ -24367,6 +27102,7 @@ export namespace Prisma {
     packages?: PackageUncheckedUpdateManyWithoutUserNestedInput
     coupons?: CouponUncheckedUpdateManyWithoutUserNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUncheckedUpdateManyWithoutReferrerNestedInput
     referralReceived?: ReferralUncheckedUpdateOneWithoutReferredNestedInput
   }
@@ -25416,6 +28152,7 @@ export namespace Prisma {
     packages?: PackageCreateNestedManyWithoutUserInput
     coupons?: CouponCreateNestedManyWithoutUserInput
     reviews?: ReviewCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinCreateNestedManyWithoutUserInput
     referralsMade?: ReferralCreateNestedManyWithoutReferrerInput
     referralReceived?: ReferralCreateNestedOneWithoutReferredInput
   }
@@ -25442,6 +28179,7 @@ export namespace Prisma {
     packages?: PackageUncheckedCreateNestedManyWithoutUserInput
     coupons?: CouponUncheckedCreateNestedManyWithoutUserInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedCreateNestedManyWithoutUserInput
     referralsMade?: ReferralUncheckedCreateNestedManyWithoutReferrerInput
     referralReceived?: ReferralUncheckedCreateNestedOneWithoutReferredInput
   }
@@ -25553,6 +28291,7 @@ export namespace Prisma {
     packages?: PackageUpdateManyWithoutUserNestedInput
     coupons?: CouponUpdateManyWithoutUserNestedInput
     reviews?: ReviewUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUpdateManyWithoutReferrerNestedInput
     referralReceived?: ReferralUpdateOneWithoutReferredNestedInput
   }
@@ -25579,6 +28318,7 @@ export namespace Prisma {
     packages?: PackageUncheckedUpdateManyWithoutUserNestedInput
     coupons?: CouponUncheckedUpdateManyWithoutUserNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUncheckedUpdateManyWithoutReferrerNestedInput
     referralReceived?: ReferralUncheckedUpdateOneWithoutReferredNestedInput
   }
@@ -25878,6 +28618,7 @@ export namespace Prisma {
     addresses?: AddressCreateNestedManyWithoutUserInput
     coupons?: CouponCreateNestedManyWithoutUserInput
     reviews?: ReviewCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinCreateNestedManyWithoutUserInput
     referralsMade?: ReferralCreateNestedManyWithoutReferrerInput
     referralReceived?: ReferralCreateNestedOneWithoutReferredInput
   }
@@ -25904,6 +28645,7 @@ export namespace Prisma {
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     coupons?: CouponUncheckedCreateNestedManyWithoutUserInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedCreateNestedManyWithoutUserInput
     referralsMade?: ReferralUncheckedCreateNestedManyWithoutReferrerInput
     referralReceived?: ReferralUncheckedCreateNestedOneWithoutReferredInput
   }
@@ -25974,6 +28716,7 @@ export namespace Prisma {
     addresses?: AddressUpdateManyWithoutUserNestedInput
     coupons?: CouponUpdateManyWithoutUserNestedInput
     reviews?: ReviewUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUpdateManyWithoutReferrerNestedInput
     referralReceived?: ReferralUpdateOneWithoutReferredNestedInput
   }
@@ -26000,6 +28743,7 @@ export namespace Prisma {
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     coupons?: CouponUncheckedUpdateManyWithoutUserNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUncheckedUpdateManyWithoutReferrerNestedInput
     referralReceived?: ReferralUncheckedUpdateOneWithoutReferredNestedInput
   }
@@ -26215,6 +28959,7 @@ export namespace Prisma {
     packages?: PackageCreateNestedManyWithoutUserInput
     coupons?: CouponCreateNestedManyWithoutUserInput
     reviews?: ReviewCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinCreateNestedManyWithoutUserInput
     referralReceived?: ReferralCreateNestedOneWithoutReferredInput
   }
 
@@ -26241,6 +28986,7 @@ export namespace Prisma {
     packages?: PackageUncheckedCreateNestedManyWithoutUserInput
     coupons?: CouponUncheckedCreateNestedManyWithoutUserInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedCreateNestedManyWithoutUserInput
     referralReceived?: ReferralUncheckedCreateNestedOneWithoutReferredInput
   }
 
@@ -26272,6 +29018,7 @@ export namespace Prisma {
     packages?: PackageCreateNestedManyWithoutUserInput
     coupons?: CouponCreateNestedManyWithoutUserInput
     reviews?: ReviewCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinCreateNestedManyWithoutUserInput
     referralsMade?: ReferralCreateNestedManyWithoutReferrerInput
   }
 
@@ -26298,6 +29045,7 @@ export namespace Prisma {
     packages?: PackageUncheckedCreateNestedManyWithoutUserInput
     coupons?: CouponUncheckedCreateNestedManyWithoutUserInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedCreateNestedManyWithoutUserInput
     referralsMade?: ReferralUncheckedCreateNestedManyWithoutReferrerInput
   }
 
@@ -26340,6 +29088,7 @@ export namespace Prisma {
     packages?: PackageUpdateManyWithoutUserNestedInput
     coupons?: CouponUpdateManyWithoutUserNestedInput
     reviews?: ReviewUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUpdateManyWithoutUserNestedInput
     referralReceived?: ReferralUpdateOneWithoutReferredNestedInput
   }
 
@@ -26366,6 +29115,7 @@ export namespace Prisma {
     packages?: PackageUncheckedUpdateManyWithoutUserNestedInput
     coupons?: CouponUncheckedUpdateManyWithoutUserNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedUpdateManyWithoutUserNestedInput
     referralReceived?: ReferralUncheckedUpdateOneWithoutReferredNestedInput
   }
 
@@ -26403,6 +29153,7 @@ export namespace Prisma {
     packages?: PackageUpdateManyWithoutUserNestedInput
     coupons?: CouponUpdateManyWithoutUserNestedInput
     reviews?: ReviewUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUpdateManyWithoutReferrerNestedInput
   }
 
@@ -26429,6 +29180,7 @@ export namespace Prisma {
     packages?: PackageUncheckedUpdateManyWithoutUserNestedInput
     coupons?: CouponUncheckedUpdateManyWithoutUserNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUncheckedUpdateManyWithoutReferrerNestedInput
   }
 
@@ -26509,6 +29261,7 @@ export namespace Prisma {
     addresses?: AddressCreateNestedManyWithoutUserInput
     packages?: PackageCreateNestedManyWithoutUserInput
     coupons?: CouponCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinCreateNestedManyWithoutUserInput
     referralsMade?: ReferralCreateNestedManyWithoutReferrerInput
     referralReceived?: ReferralCreateNestedOneWithoutReferredInput
   }
@@ -26535,6 +29288,7 @@ export namespace Prisma {
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     packages?: PackageUncheckedCreateNestedManyWithoutUserInput
     coupons?: CouponUncheckedCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedCreateNestedManyWithoutUserInput
     referralsMade?: ReferralUncheckedCreateNestedManyWithoutReferrerInput
     referralReceived?: ReferralUncheckedCreateNestedOneWithoutReferredInput
   }
@@ -26638,6 +29392,7 @@ export namespace Prisma {
     addresses?: AddressUpdateManyWithoutUserNestedInput
     packages?: PackageUpdateManyWithoutUserNestedInput
     coupons?: CouponUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUpdateManyWithoutReferrerNestedInput
     referralReceived?: ReferralUpdateOneWithoutReferredNestedInput
   }
@@ -26664,6 +29419,7 @@ export namespace Prisma {
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     packages?: PackageUncheckedUpdateManyWithoutUserNestedInput
     coupons?: CouponUncheckedUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUncheckedUpdateManyWithoutReferrerNestedInput
     referralReceived?: ReferralUncheckedUpdateOneWithoutReferredNestedInput
   }
@@ -26690,6 +29446,7 @@ export namespace Prisma {
     addresses?: AddressCreateNestedManyWithoutUserInput
     packages?: PackageCreateNestedManyWithoutUserInput
     reviews?: ReviewCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinCreateNestedManyWithoutUserInput
     referralsMade?: ReferralCreateNestedManyWithoutReferrerInput
     referralReceived?: ReferralCreateNestedOneWithoutReferredInput
   }
@@ -26716,6 +29473,7 @@ export namespace Prisma {
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     packages?: PackageUncheckedCreateNestedManyWithoutUserInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedCreateNestedManyWithoutUserInput
     referralsMade?: ReferralUncheckedCreateNestedManyWithoutReferrerInput
     referralReceived?: ReferralUncheckedCreateNestedOneWithoutReferredInput
   }
@@ -26758,6 +29516,7 @@ export namespace Prisma {
     addresses?: AddressUpdateManyWithoutUserNestedInput
     packages?: PackageUpdateManyWithoutUserNestedInput
     reviews?: ReviewUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUpdateManyWithoutReferrerNestedInput
     referralReceived?: ReferralUpdateOneWithoutReferredNestedInput
   }
@@ -26783,6 +29542,131 @@ export namespace Prisma {
     orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     packages?: PackageUncheckedUpdateManyWithoutUserNestedInput
+    reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
+    luckyWheelSpins?: LuckyWheelSpinUncheckedUpdateManyWithoutUserNestedInput
+    referralsMade?: ReferralUncheckedUpdateManyWithoutReferrerNestedInput
+    referralReceived?: ReferralUncheckedUpdateOneWithoutReferredNestedInput
+  }
+
+  export type UserCreateWithoutLuckyWheelSpinsInput = {
+    id?: string
+    name: string
+    email: string
+    passwordHash: string
+    phone?: string | null
+    role?: $Enums.UserRole
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    referralCode?: string | null
+    referralLink?: string | null
+    referredBy?: string | null
+    referralCount?: number
+    referralDiscountCode?: string | null
+    referralDiscountUsed?: boolean
+    discountEligible?: boolean
+    discountUsed?: boolean
+    orders?: OrderCreateNestedManyWithoutUserInput
+    addresses?: AddressCreateNestedManyWithoutUserInput
+    packages?: PackageCreateNestedManyWithoutUserInput
+    coupons?: CouponCreateNestedManyWithoutUserInput
+    reviews?: ReviewCreateNestedManyWithoutUserInput
+    referralsMade?: ReferralCreateNestedManyWithoutReferrerInput
+    referralReceived?: ReferralCreateNestedOneWithoutReferredInput
+  }
+
+  export type UserUncheckedCreateWithoutLuckyWheelSpinsInput = {
+    id?: string
+    name: string
+    email: string
+    passwordHash: string
+    phone?: string | null
+    role?: $Enums.UserRole
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    referralCode?: string | null
+    referralLink?: string | null
+    referredBy?: string | null
+    referralCount?: number
+    referralDiscountCode?: string | null
+    referralDiscountUsed?: boolean
+    discountEligible?: boolean
+    discountUsed?: boolean
+    orders?: OrderUncheckedCreateNestedManyWithoutUserInput
+    addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
+    packages?: PackageUncheckedCreateNestedManyWithoutUserInput
+    coupons?: CouponUncheckedCreateNestedManyWithoutUserInput
+    reviews?: ReviewUncheckedCreateNestedManyWithoutUserInput
+    referralsMade?: ReferralUncheckedCreateNestedManyWithoutReferrerInput
+    referralReceived?: ReferralUncheckedCreateNestedOneWithoutReferredInput
+  }
+
+  export type UserCreateOrConnectWithoutLuckyWheelSpinsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutLuckyWheelSpinsInput, UserUncheckedCreateWithoutLuckyWheelSpinsInput>
+  }
+
+  export type UserUpsertWithoutLuckyWheelSpinsInput = {
+    update: XOR<UserUpdateWithoutLuckyWheelSpinsInput, UserUncheckedUpdateWithoutLuckyWheelSpinsInput>
+    create: XOR<UserCreateWithoutLuckyWheelSpinsInput, UserUncheckedCreateWithoutLuckyWheelSpinsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutLuckyWheelSpinsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutLuckyWheelSpinsInput, UserUncheckedUpdateWithoutLuckyWheelSpinsInput>
+  }
+
+  export type UserUpdateWithoutLuckyWheelSpinsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    referralCode?: NullableStringFieldUpdateOperationsInput | string | null
+    referralLink?: NullableStringFieldUpdateOperationsInput | string | null
+    referredBy?: NullableStringFieldUpdateOperationsInput | string | null
+    referralCount?: IntFieldUpdateOperationsInput | number
+    referralDiscountCode?: NullableStringFieldUpdateOperationsInput | string | null
+    referralDiscountUsed?: BoolFieldUpdateOperationsInput | boolean
+    discountEligible?: BoolFieldUpdateOperationsInput | boolean
+    discountUsed?: BoolFieldUpdateOperationsInput | boolean
+    orders?: OrderUpdateManyWithoutUserNestedInput
+    addresses?: AddressUpdateManyWithoutUserNestedInput
+    packages?: PackageUpdateManyWithoutUserNestedInput
+    coupons?: CouponUpdateManyWithoutUserNestedInput
+    reviews?: ReviewUpdateManyWithoutUserNestedInput
+    referralsMade?: ReferralUpdateManyWithoutReferrerNestedInput
+    referralReceived?: ReferralUpdateOneWithoutReferredNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutLuckyWheelSpinsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    passwordHash?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    referralCode?: NullableStringFieldUpdateOperationsInput | string | null
+    referralLink?: NullableStringFieldUpdateOperationsInput | string | null
+    referredBy?: NullableStringFieldUpdateOperationsInput | string | null
+    referralCount?: IntFieldUpdateOperationsInput | number
+    referralDiscountCode?: NullableStringFieldUpdateOperationsInput | string | null
+    referralDiscountUsed?: BoolFieldUpdateOperationsInput | boolean
+    discountEligible?: BoolFieldUpdateOperationsInput | boolean
+    discountUsed?: BoolFieldUpdateOperationsInput | boolean
+    orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
+    addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
+    packages?: PackageUncheckedUpdateManyWithoutUserNestedInput
+    coupons?: CouponUncheckedUpdateManyWithoutUserNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutUserNestedInput
     referralsMade?: ReferralUncheckedUpdateManyWithoutReferrerNestedInput
     referralReceived?: ReferralUncheckedUpdateOneWithoutReferredNestedInput
@@ -26837,6 +29721,8 @@ export namespace Prisma {
     code: string
     discountPct: number
     isUsed?: boolean
+    usageLimit?: number
+    usedCount?: number
     expiresAt: Date | string
     createdAt?: Date | string
   }
@@ -26849,6 +29735,15 @@ export namespace Prisma {
     isVerified?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type LuckyWheelSpinCreateManyUserInput = {
+    id?: string
+    rewardId?: string | null
+    rewardType: string
+    rewardValue: string
+    couponCode?: string | null
+    createdAt?: Date | string
   }
 
   export type ReferralCreateManyReferrerInput = {
@@ -27002,6 +29897,8 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     discountPct?: IntFieldUpdateOperationsInput | number
     isUsed?: BoolFieldUpdateOperationsInput | boolean
+    usageLimit?: IntFieldUpdateOperationsInput | number
+    usedCount?: IntFieldUpdateOperationsInput | number
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -27011,6 +29908,8 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     discountPct?: IntFieldUpdateOperationsInput | number
     isUsed?: BoolFieldUpdateOperationsInput | boolean
+    usageLimit?: IntFieldUpdateOperationsInput | number
+    usedCount?: IntFieldUpdateOperationsInput | number
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -27020,6 +29919,8 @@ export namespace Prisma {
     code?: StringFieldUpdateOperationsInput | string
     discountPct?: IntFieldUpdateOperationsInput | number
     isUsed?: BoolFieldUpdateOperationsInput | boolean
+    usageLimit?: IntFieldUpdateOperationsInput | number
+    usedCount?: IntFieldUpdateOperationsInput | number
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -27052,6 +29953,33 @@ export namespace Prisma {
     isVerified?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LuckyWheelSpinUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    rewardId?: NullableStringFieldUpdateOperationsInput | string | null
+    rewardType?: StringFieldUpdateOperationsInput | string
+    rewardValue?: StringFieldUpdateOperationsInput | string
+    couponCode?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LuckyWheelSpinUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    rewardId?: NullableStringFieldUpdateOperationsInput | string | null
+    rewardType?: StringFieldUpdateOperationsInput | string
+    rewardValue?: StringFieldUpdateOperationsInput | string
+    couponCode?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LuckyWheelSpinUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    rewardId?: NullableStringFieldUpdateOperationsInput | string | null
+    rewardType?: StringFieldUpdateOperationsInput | string
+    rewardValue?: StringFieldUpdateOperationsInput | string
+    couponCode?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ReferralUpdateWithoutReferrerInput = {
@@ -27741,6 +30669,14 @@ export namespace Prisma {
      * @deprecated Use CouponDefaultArgs instead
      */
     export type CouponArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CouponDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use LuckyWheelRewardDefaultArgs instead
+     */
+    export type LuckyWheelRewardArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LuckyWheelRewardDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use LuckyWheelSpinDefaultArgs instead
+     */
+    export type LuckyWheelSpinArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LuckyWheelSpinDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

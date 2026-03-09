@@ -70,6 +70,7 @@
   body {
     @apply text-zinc-900 bg-zinc-50 dark:bg-zinc-950 dark:text-zinc-50;
     transition: background-color 0.2s ease, color 0.2s ease;
+    overflow-x: hidden;
   }
 
   /* ── Scrollbar ── */
@@ -315,6 +316,11 @@
   /* ── ORDER STATUS BADGES ── */
   .status-pending {
     @apply badge-warning;
+  }
+
+  /* ── PAGE SECTION PADDING ── */
+  .page-section {
+    @apply px-4 md:px-8;
   }
 
   .status-confirmed {

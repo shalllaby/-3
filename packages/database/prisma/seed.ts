@@ -66,6 +66,11 @@ async function main() {
         update: {},
         create: { nameAr: 'العناية بالبشرة', nameEn: 'Skin Care', slug: 'skin-care', sortOrder: 4 },
     });
+    const plasticUtensils = await prisma.category.upsert({
+        where: { slug: 'plastic-utensils' },
+        update: {},
+        create: { nameAr: 'الأواني البلاستيكية', nameEn: 'Plastic Utensils', slug: 'plastic-utensils', sortOrder: 5 },
+    });
 
     console.log('✅ Categories created');
 

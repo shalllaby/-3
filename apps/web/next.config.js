@@ -18,6 +18,15 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.salla.sa',
+      },
+      {
+        // Allow any https image source (API uploads, CDNs, etc.)
+        protocol: 'https',
+        hostname: '**',
+      },
     ],
   },
 };

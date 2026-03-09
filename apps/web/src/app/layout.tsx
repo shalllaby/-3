@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { IBM_Plex_Sans_Arabic } from 'next/font/google';
+import { IBM_Plex_Sans_Arabic, Cairo } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
 import { STORE_NAME } from '@/lib/constants';
@@ -11,6 +11,13 @@ const arabicFont = IBM_Plex_Sans_Arabic({
     variable: '--font-arabic',
     display: 'swap',
     fallback: ['system-ui', 'Tajawal', 'sans-serif'],
+});
+
+const cairoFont = Cairo({
+    subsets: ['arabic', 'latin'],
+    weight: ['400', '500', '600', '700', '800', '900'],
+    variable: '--font-cairo',
+    display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -44,7 +51,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="ar" dir="rtl" className={arabicFont.variable}>
+        <html lang="ar" dir="rtl" className={`${arabicFont.variable} ${cairoFont.variable}`}>
             <body className="font-sans antialiased bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-200">
                 <ThemeProvider>
                     {children}
