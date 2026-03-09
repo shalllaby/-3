@@ -552,17 +552,42 @@ export default async function HomePage() {
 
                     <div className="cat-grid">
                         {categories.slice(0, 12).map((cat: any) => {
-                            const localImagePath = `/صور الاقسام/${cat.nameAr}.png`;
-                            const fullPath = path.join(process.cwd(), 'public', 'صور الاقسام', `${cat.nameAr}.png`);
-                            const hasLocalImage = fs.existsSync(fullPath);
+                            const imageName = `${cat.nameAr}.png`;
+                            const localImagePath = `/صور الاقسام/${imageName}`;
+
+                            // Handle monorepo pathing (local dev usually from root, production from app dir)
+                            const possiblePublicPaths = [
+                                path.join(process.cwd(), 'public'),
+                                path.join(process.cwd(), 'apps', 'web', 'public')
+                            ];
+
+                            let hasLocalImage = false;
+                            for (const p of possiblePublicPaths) {
+                                if (fs.existsSync(path.join(p, 'صور الاقسام', imageName))) {
+                                    hasLocalImage = true;
+                                    break;
+                                }
+                            }
 
                             return (
                                 <Link key={cat.id} href={`/products?categoryId=${cat.id}`} className="cat-card">
                                     <div className="cat-img-wrap">
                                         {hasLocalImage ? (
-                                            <Image src={localImagePath} alt={cat.nameAr} width={80} height={80} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
+                                            <Image
+                                                src={localImagePath}
+                                                alt={cat.nameAr}
+                                                width={80}
+                                                height={80}
+                                                style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+                                            />
                                         ) : cat.imageUrl ? (
-                                            <Image src={cat.imageUrl} alt={cat.nameAr} width={80} height={80} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+                                            <Image
+                                                src={cat.imageUrl}
+                                                alt={cat.nameAr}
+                                                width={80}
+                                                height={80}
+                                                style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+                                            />
                                         ) : (
                                             <span style={{ fontSize: 32 }}>📦</span>
                                         )}
