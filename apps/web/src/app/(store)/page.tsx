@@ -552,11 +552,17 @@ export default async function HomePage() {
 
                     <div className="cat-grid">
                         {categories.slice(0, 12).map((cat: any) => {
+                            const localImagePath = `/صور الاقسام/${cat.nameAr}.png`;
+                            const fullPath = path.join(process.cwd(), 'public', 'صور الاقسام', `${cat.nameAr}.png`);
+                            const hasLocalImage = fs.existsSync(fullPath);
+
                             return (
                                 <Link key={cat.id} href={`/products?categoryId=${cat.id}`} className="cat-card">
                                     <div className="cat-img-wrap">
-                                        {cat.imageUrl ? (
-                                            <Image src={cat.imageUrl} alt={cat.nameAr} width={80} height={80} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
+                                        {hasLocalImage ? (
+                                            <Image src={localImagePath} alt={cat.nameAr} width={80} height={80} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
+                                        ) : cat.imageUrl ? (
+                                            <Image src={cat.imageUrl} alt={cat.nameAr} width={80} height={80} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
                                         ) : (
                                             <span style={{ fontSize: 32 }}>📦</span>
                                         )}
