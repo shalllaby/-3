@@ -49,27 +49,27 @@ async function main() {
     const utensils = await prisma.category.upsert({
         where: { slug: 'utensils' },
         update: {},
-        create: { nameAr: 'الأواني', nameEn: 'Utensils', slug: 'utensils', sortOrder: 1 },
+        create: { nameAr: 'الأواني', nameEn: 'Utensils', slug: 'utensils', sortOrder: 1, imageUrl: 'https://i.ibb.co/Kjh1wdGV/image.png' },
     });
     const paperProducts = await prisma.category.upsert({
         where: { slug: 'paper-products' },
         update: {},
-        create: { nameAr: 'المنتجات الورقية', nameEn: 'Paper Products', slug: 'paper-products', sortOrder: 2 },
+        create: { nameAr: 'المنتجات الورقية', nameEn: 'Paper Products', slug: 'paper-products', sortOrder: 2, imageUrl: 'https://i.ibb.co/QFvM28SK/image.png' },
     });
     const detergents = await prisma.category.upsert({
         where: { slug: 'detergents' },
         update: {},
-        create: { nameAr: 'المنظفات والمساحيق', nameEn: 'Detergents & Powders', slug: 'detergents', sortOrder: 3 },
+        create: { nameAr: 'المنظفات والمساحيق', nameEn: 'Detergents & Powders', slug: 'detergents', sortOrder: 3, imageUrl: 'https://i.ibb.co/sJ1sxd48/image.png' },
     });
     const skinCare = await prisma.category.upsert({
         where: { slug: 'skin-care' },
         update: {},
-        create: { nameAr: 'العناية بالبشرة', nameEn: 'Skin Care', slug: 'skin-care', sortOrder: 4 },
+        create: { nameAr: 'العناية بالبشرة', nameEn: 'Skin Care', slug: 'skin-care', sortOrder: 4, imageUrl: 'https://i.ibb.co/tTXMsyr7/image.png' },
     });
     const plasticUtensils = await prisma.category.upsert({
         where: { slug: 'plastic-utensils' },
         update: {},
-        create: { nameAr: 'الأواني البلاستيكية', nameEn: 'Plastic Utensils', slug: 'plastic-utensils', sortOrder: 5 },
+        create: { nameAr: 'الأواني البلاستيكية', nameEn: 'Plastic Utensils', slug: 'plastic-utensils', sortOrder: 5, imageUrl: 'https://i.ibb.co/Xx3fcQ2m/image.png' },
     });
 
     console.log('✅ Categories created');
