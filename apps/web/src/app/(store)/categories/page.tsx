@@ -47,9 +47,31 @@ export default async function CategoriesPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {categories.map((cat: any) => {
-                        const localImagePath = `/صور الاقسام/${cat.nameAr}.png`;
-                        const fullPath = path.join(process.cwd(), 'public', 'صور الاقسام', `${cat.nameAr}.png`);
-                        const hasLocalImage = fs.existsSync(fullPath);
+                        const imageName = `${cat.nameAr}.png`;
+                        const localImagePath = `/صور الاقسام/${imageName}`;
+
+                        // Rule: If we have a remote imageUrl in DB, use it (best for Production)
+                        // Otherwise, try to find it locally (best for Local dev)
+                        let finalSrc = cat.imageUrl || localImagePath;
+
+                        // Check if we should override with local if it exists
+                        const possiblePublicPaths = [
+                            path.join(process.cwd(), 'public'),
+                            path.join(process.cwd(), 'apps', 'web', 'public')
+                        ];
+
+                        let localExists = false;
+                        for (const p of possiblePublicPaths) {
+                            if (fs.existsSync(path.join(p, 'صور الاقسام', imageName))) {
+                                localExists = true;
+                                break;
+                            }
+                        }
+
+                        // If it doesn't exist locally AND we don't have a remote URL, show box
+                        if (!localExists && !cat.imageUrl) {
+                            finalSrc = null;
+                        }
 
                         return (
                             <Link
@@ -58,10 +80,14 @@ export default async function CategoriesPage() {
                                 className="group bg-white rounded-[2rem] p-6 border border-transparent hover:border-brand-100 hover:shadow-2xl hover:shadow-brand-100/20 transition-all duration-500 flex flex-col items-center text-center"
                             >
                                 <div className="w-24 h-24 bg-brand-50 rounded-[2rem] flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-brand-100 transition-all duration-500 overflow-hidden relative">
-                                    {hasLocalImage ? (
-                                        <Image src={localImagePath} alt={cat.nameAr} fill className="object-contain p-2" />
-                                    ) : cat.imageUrl ? (
-                                        <Image src={cat.imageUrl} alt={cat.nameAr} fill className="object-cover p-4" />
+                                    {finalSrc ? (
+                                        <Image
+                                            src={encodeURI(finalSrc)}
+                                            alt={cat.nameAr}
+                                            fill
+                                            className="object-contain p-2"
+                                            unoptimized
+                                        />
                                     ) : (
                                         <span className="text-4xl">📦</span>
                                     )}
