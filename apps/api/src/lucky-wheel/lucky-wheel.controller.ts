@@ -8,14 +8,14 @@ export class LuckyWheelController {
 
     @UseGuards(JwtAuthGuard)
     @Get('status')
-    async getStatus(@Req() req) {
+    async getStatus(@Req() req: any) {
         const canSpin = await this.luckyWheelService.canUserSpin(req.user.id);
         return { canSpin };
     }
 
     @UseGuards(JwtAuthGuard)
     @Post('spin')
-    async spin(@Req() req) {
+    async spin(@Req() req: any) {
         try {
             const result = await this.luckyWheelService.spin(req.user.id);
             return { success: true, reward: result };
